@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home | Gramventure</title>
+<meta name="description" content="Gramventure — opportunities for stronger communities.">
+<link rel="icon" href="assets/img/gramventure_logo.jpg">
+<link rel="stylesheet" href="assets/css/style.css">
+
+  <meta name="view-transition" content="same-origin">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to Main Content</a>
+
+<header class="site-header gov-header">
+  <div class="header-row">
+    <a class="brand" href="index.html" style="text-decoration:none; display:flex; align-items:center;">
+      <img src="assets/img/gramventure_logo.jpg" alt="Gramventure Logo" style="width: 75px; height: 75px; margin-right: 16px; object-fit: contain; mix-blend-mode: multiply;">
+      <div class="brand-text">
+        <h1 class="gov-title">Gramventure</h1>
+        <p class="gov-subtitle">Empowering Local Communities</p>
+      </div>
+    </a>
+    
+      <div class="app-switcher" id="mainSwitcher" style="display:inline-flex; background:#f1f5f9; border-radius:24px; padding:4px; align-items:center; ">
+        <div class="switcher-bg" style="position:absolute; top:4px; left:4px; bottom:4px; width:94px; background:#fff; border-radius:20px; box-shadow:0 2px 8px rgba(0,0,0,0.1); transition:transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); transform:translateX(0);"></div>
+        <a href="index.html" class="switch-btn" style="position:relative; z-index:1; padding:8px 16px; font-size:14px; font-weight:700; color:#0f172a; text-decoration:none; width: 94px; text-align:center; display:inline-block; box-sizing:border-box;">Business</a>
+        <a href="financial-literacy.html" class="switch-btn" style="position:relative; z-index:1; padding:8px 16px; font-size:14px; font-weight:600; color:#64748b; text-decoration:none; width: 94px; text-align:center; display:inline-block; box-sizing:border-box;">Academy</a>
+      </div>
+
+    <div class="header-actions" style="display: flex; gap: 16px; align-items: center;">
+      <select class="lang-select" aria-label="Select language" style="border: 1px solid var(--grey-200); padding: 10px 14px; border-radius: 8px; font-weight: 600; font-size: 14px; background: #fff; cursor: pointer; color: var(--navy); outline: none;">
+        <option>English</option><option>हिन्दी</option>
+      </select>
+      <form class="search-form gov-search" role="search" onsubmit="return false;">
+        <label for="siteSearch" class="visually-hidden" style="position:absolute;left:-9999px;">Search</label>
+        <input id="siteSearch" type="text" placeholder="Search schemes, loans, businesses, terms...">
+        <button type="submit" aria-label="Search">🔍</button>
+      </form>
+    </div>
+  </div>
+  <nav class="main-nav gov-nav" aria-label="Primary">
+    <div class="container">
+      <ul><li><a class="active" href="index.html">Home</a></li><li><a class="" href="schemes-benefits.html">Schemes & Benefits</a></li><li><a class="" href="loans-facility.html">Loans Facility</a></li><li><a class="" href="government-initiatives.html">Core Initiatives</a></li><li><a class="" href="impact-data.html">Impact & Data</a></li>
+      <li class="login-nav"><a id="loginBtn" href="login.html">👤 Login</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<main id="main">
+
+<!-- Sliding Announcements Bar -->
+<div class="announce-bar" id="announceBar" aria-label="Latest announcements">
+  <div class="announce-label">📢 Latest</div>
+  <div class="announce-track">
+    <div class="announce-slider" id="announceSlider">
+      <span class="announce-item">🏦 MUDRA Loan limit increased to ₹20 Lakh under Tarun category — <a href="schemes-benefits.html">Apply Now</a></span>
+      <span class="announce-item">🌾 PM-KISAN 17th installment released — Check eligibility on <a href="schemes-benefits.html">Schemes & Benefits</a></span>
+      <span class="announce-item">📋 New MSME Registration portal launched — Register your enterprise in 15 minutes</span>
+      <span class="announce-item">🎓 Free Financial Literacy courses now available — <a href="financial-literacy.html">Start Learning</a></span>
+      <span class="announce-item">💰 Stand-Up India: ₹10 Lakh–₹1 Cr loans for SC/ST & Women entrepreneurs</span>
+      <span class="announce-item">🏪 ODOP (One District One Product) scheme expanded to 150 new districts</span>
+    </div>
+  </div>
+  <button class="announce-close" id="announceClose" aria-label="Close announcements">✕</button>
+</div>
+
+<section class="hero-slider-section">
+  <div class="hero-slider-container" id="heroSlider">
+    
+    <!-- Slide 1 -->
+    <div class="slide active">
+      <div class="slide-bg" style="background-image: url('assets/img/rural_entrepreneur.jpg');"></div>
+      <div class="slide-overlay"></div>
+      <div class="gov-hero-inner">
+        <div class="gov-hero-content">
+          <h2>Empowering Rural Entrepreneurs</h2>
+          <p>Explore opportunities, access schemes, get financial support and build a self-reliant future for you and your community.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+      <div class="slide-bg" style="background-image: url('assets/img/rural_finance.jpg');"></div>
+      <div class="slide-overlay"></div>
+      <div class="gov-hero-inner">
+        <div class="gov-hero-content">
+          <h2>Financial Support for All</h2>
+          <p>Get access to collateral-free loans, low interest rates, and specialized financial modules to grow your rural business.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide">
+      <div class="slide-bg" style="background-image: url('assets/img/rural_impact.jpg');"></div>
+      <div class="slide-overlay"></div>
+      <div class="gov-hero-inner">
+        <div class="gov-hero-content">
+          <h2>Nationwide Impact</h2>
+          <p>Join millions of beneficiaries across India. Track real-time progress and discover inspiring success stories from local entrepreneurs.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="slider-controls">
+       <button class="slider-dot active" data-idx="0" aria-label="Slide 1"></button>
+       <button class="slider-dot" data-idx="1" aria-label="Slide 2"></button>
+       <button class="slider-dot" data-idx="2" aria-label="Slide 3"></button>
+    </div>
+  </div>
+</section>
+
+<section class="home-cta-section" style="padding: 32px 16px; background: #f8fafc; border-bottom: 1px solid #e1e4e8; display: flex; justify-content: center; align-items: center; gap: 16px; flex-wrap: wrap;">
+  <h3 style="margin: 0; font-size: 1.25rem; color: #0b2e5c;">Start your journey:</h3>
+  <input type="text" id="homeLocationInput" placeholder="Enter your location (e.g. Bihar)" style="padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 1rem; width: 250px;">
+  <input type="number" id="homeCapitalInput" placeholder="Initial capital (₹)" style="padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 1rem; width: 200px;">
+  <button id="homeStartBtn" style="padding: 12px 24px; border-radius: 6px; background: #0b2e5c; color: #fff; border: none; cursor: pointer; font-size: 1rem; font-weight: 600;">Start Now</button>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const slides = document.querySelectorAll('#heroSlider .slide');
+    const dots = document.querySelectorAll('#heroSlider .slider-dot');
+    let currentSlide = 0;
+    let timer;
+
+    function showSlide(index) {
+        slides.forEach(s => s.classList.remove('active'));
+        dots.forEach(d => d.classList.remove('active'));
+        
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+        currentSlide = index;
+    }
+
+    function nextSlide() {
+        let next = (currentSlide + 1) % slides.length;
+        showSlide(next);
+    }
+
+    dots.forEach((dot, idx) => {
+        dot.addEventListener('click', () => {
+            showSlide(idx);
+            resetTimer();
+        });
+    });
+
+    function startTimer() {
+        timer = setInterval(nextSlide, 5000);
+    }
+    
+    function resetTimer() {
+        clearInterval(timer);
+        startTimer();
+    }
+
+    if(slides.length > 0) {
+       startTimer();
+    }
+});
+</script>
+
+<section class="gov-card-grid" aria-label="Explore sections">
+  <div class="gov-card">
+    <div class="icon-wrap">📘</div>
+    <h3>Financial Literacy</h3>
+    <p>Learn financial concepts in 2 minutes a day.</p>
+    <a href="financial-literacy.html">Start Learning →</a>
+  </div>
+  <div class="gov-card">
+    <div class="icon-wrap">📄</div>
+    <h3>Schemes &amp; Benefits</h3>
+    <p>Explore financial schemes and subsidies.</p>
+    <a href="schemes-benefits.html">View Schemes →</a>
+  </div>
+  <div class="gov-card">
+    <div class="icon-wrap">🪙</div>
+    <h3>Loans Facility</h3>
+    <p>Understand loan options, EMI, and eligibility.</p>
+    <a href="loans-facility.html">Explore Loans →</a>
+  </div>
+  <div class="gov-card">
+    <div class="icon-wrap">🏛️</div>
+    <h3>Initiatives</h3>
+    <p>National initiatives for rural development.</p>
+    <a href="government-initiatives.html">Know More →</a>
+  </div>
+  <div class="gov-card">
+    <div class="icon-wrap">📊</div>
+    <h3>Impact Data</h3>
+    <p>Real-time progress and success stories.</p>
+    <a href="impact-data.html">View Data →</a>
+  </div>
+</section>
+
+<section class="stats-strip" aria-label="Key statistics">
+  <div class="container" id="statsStrip"></div>
+</section>
+
+<section class="stories-section">
+  <div class="stories-head">
+    <div>
+      <h2 style="margin-bottom:2px;">Success Stories</h2>
+      <p class="muted" style="margin:0;">Real People. Real Progress.</p>
+    </div>
+    <a href="impact-data.html">View All Stories →</a>
+  </div>
+  <div class="stories-row" id="storiesRow"></div>
+</section>
+
+<section class="ribbon">
+  <div class="container">
+    <div class="ribbon-steps">
+      <div class="ribbon-step"><div class="icon-wrap">📘</div><div><b>Learn</b><span>Build your financial knowledge</span></div></div>
+      <div class="ribbon-step"><div class="icon-wrap">💡</div><div><b>Choose</b><span>Find the right business for you</span></div></div>
+      <div class="ribbon-step"><div class="icon-wrap">₹</div><div><b>Finance</b><span>Access the right support</span></div></div>
+      <div class="ribbon-step"><div class="icon-wrap">🌱</div><div><b>Grow</b><span>Expand your business</span></div></div>
+      <div class="ribbon-step"><div class="icon-wrap">🧑‍🤝‍🧑</div><div><b>Prosper</b><span>Create a better future</span></div></div>
+    </div>
+    <div class="ribbon-slogan">Together for a<br>Self-Reliant Rural India</div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <h4>Gramventure</h4>
+      <p>An initiative connecting rural entrepreneurs with financial literacy, schemes, loans and market opportunities to build a self-reliant rural economy.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="financial-literacy.html">Financial Literacy</a></li>
+        <li><a href="schemes-benefits.html">Schemes &amp; Benefits</a></li>
+        <li><a href="loans-facility.html">Loans Facility</a></li>
+        <li><a href="start-business.html">Start a Business</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>About</h4>
+      <ul>
+        <li><a href="government-initiatives.html">Core Initiatives</a></li>
+        <li><a href="impact-data.html">Impact &amp; Data</a></li>
+        <li><a href="#">RTI</a></li>
+        <li><a href="#">Terms of Use</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li>Toll-Free: 1800-11-0001</li>
+        <li>helpdesk@gramventure.com</li>
+        <li>Mon–Sat, 9:00 AM – 6:00 PM IST</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    Content owned by Empowering Local Communities (demo build) &nbsp;|&nbsp; Last updated: September 2026
+  </div>
+</footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", ()=>{
+  const s = REI_DATA.stats;
+  const iconWrap = (bg,color,icon)=>`<div class="icon-wrap" style="background:${bg};color:${color}">${icon}</div>`;
+  document.getElementById("statsStrip").innerHTML = `
+    <div class="stat">${iconWrap('#eaf1fc','#0b2e5c','👥')}<div><b>${s.beneficiaries}</b><span>Beneficiaries Supported</span></div></div>
+    <div class="stat">${iconWrap('#eaf7e9','#128807','💼')}<div><b>${s.businesses}</b><span>Businesses Benefited</span></div></div>
+    <div class="stat">${iconWrap('#fff4e5','#e07f1a','₹')}<div><b>${s.loans}</b><span>Loans Facilitated</span></div></div>
+    <div class="stat">${iconWrap('#eaf7e9','#128807','📈')}<div><b>${s.districts}</b><span>Districts Covered</span></div></div>
+    <div class="stat">${iconWrap('#f1eefd','#5b3fbf','🧑‍🤝‍🧑')}<div><b>${s.jobs}</b><span>Rural Jobs Created</span></div></div>
+  `;
+  document.getElementById("storiesRow").innerHTML = REI_DATA.stories.slice(0,3).map(st => `
+    <div class="story-card">
+      <div class="story-avatar">${st.initials}</div>
+      <div><p>"${st.quote}"</p><strong>— ${st.name}</strong><em>${st.place}</em></div>
+    </div>
+  `).join("");
+});
+</script>
+
+<script src="assets/js/animate-stats.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const switcher = document.getElementById('mainSwitcher');
+    if (!switcher) return;
+    const bg = switcher.querySelector('.switcher-bg');
+    const btns = switcher.querySelectorAll('.switch-btn');
+    
+    btns.forEach((btn, index) => {
+      btn.addEventListener('click', (e) => {
+        // If it's already active, do nothing
+        if (btn.style.color === 'rgb(15, 23, 42)' || btn.style.color === 'rgb(109, 40, 217)' || btn.style.fontWeight === '700') {
+           // We are already on this page
+        } else {
+           e.preventDefault();
+           const targetUrl = btn.href;
+           
+           // Slide the background
+           bg.style.transform = index === 0 ? 'translateX(0)' : 'translateX(94px)';
+           
+           // Update colors immediately for feel
+           btns[0].style.color = index === 0 ? '#0f172a' : '#64748b';
+           btns[0].style.fontWeight = index === 0 ? '700' : '600';
+           
+           btns[1].style.color = index === 1 ? '#6d28d9' : '#64748b';
+           btns[1].style.fontWeight = index === 1 ? '700' : '600';
+
+           // Wait for slide animation (300ms) then navigate
+           setTimeout(() => {
+             window.location.href = targetUrl;
+           }, 300);
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+// Announcement Ticker: duplicate items for seamless infinite loop
+(function() {
+  const slider = document.getElementById('announceSlider');
+  if (!slider) return;
+  
+  // Clone all items and append for seamless loop
+  const items = slider.innerHTML;
+  slider.innerHTML = items + items;
+  
+  // Close button
+  const closeBtn = document.getElementById('announceClose');
+  const bar = document.getElementById('announceBar');
+  if (closeBtn && bar) {
+    closeBtn.addEventListener('click', () => {
+      bar.classList.add('hidden');
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

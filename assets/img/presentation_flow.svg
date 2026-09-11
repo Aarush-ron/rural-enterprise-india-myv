@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" width="100%" height="100%">
+  <!-- Background -->
+  <rect width="1200" height="1000" fill="#f8fafc"/>
+  
+  <!-- Title -->
+  <text x="600" y="50" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#0A2540" text-anchor="middle">Gramventure: Ecosystem Architecture &amp; User Flow</text>
+  
+  <!-- TECH STACK SECTION (Future-Proofed) -->
+  <rect x="50" y="80" width="1100" height="200" rx="15" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="600" y="115" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#0A2540" text-anchor="middle">Comprehensive Tech Stack &amp; Future Integration</text>
+  
+  <g font-family="Arial, sans-serif">
+    <!-- Frontend -->
+    <rect x="100" y="140" width="220" height="110" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="210" y="165" font-size="18" font-weight="bold" fill="#0f172a" text-anchor="middle">Frontend Layer</text>
+    <text x="210" y="195" font-size="14" fill="#334155" text-anchor="middle">HTML5, CSS3, Vanilla JS</text>
+    <text x="210" y="215" font-size="14" fill="#334155" text-anchor="middle">React / Next.js (Future)</text>
+    <text x="210" y="235" font-size="14" fill="#334155" text-anchor="middle">Custom i18n Localization</text>
+
+    <!-- Backend & DB -->
+    <rect x="350" y="140" width="220" height="110" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="460" y="165" font-size="18" font-weight="bold" fill="#0f172a" text-anchor="middle">Backend &amp; DB</text>
+    <text x="460" y="195" font-size="14" fill="#334155" text-anchor="middle">Node.js / Python (FastAPI)</text>
+    <text x="460" y="215" font-size="14" fill="#334155" text-anchor="middle">PostgreSQL / MongoDB</text>
+    <text x="460" y="235" font-size="14" fill="#334155" text-anchor="middle">Firebase Auth &amp; Hosting</text>
+
+    <!-- AI & Intelligence -->
+    <rect x="600" y="140" width="250" height="110" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="2"/>
+    <text x="725" y="165" font-size="18" font-weight="bold" fill="#166534" text-anchor="middle">AI &amp; Data Intelligence</text>
+    <text x="725" y="195" font-size="14" fill="#166534" text-anchor="middle">Autonomous AI Agents</text>
+    <text x="725" y="215" font-size="14" fill="#166534" text-anchor="middle">LLM &amp; RAG (Retrieval)</text>
+    <text x="725" y="235" font-size="14" fill="#166534" text-anchor="middle">Predictive Market Analytics</text>
+
+    <!-- Infra & Security -->
+    <rect x="880" y="140" width="220" height="110" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="990" y="165" font-size="18" font-weight="bold" fill="#0f172a" text-anchor="middle">Infra &amp; Security</text>
+    <text x="990" y="195" font-size="14" fill="#334155" text-anchor="middle">Cloud Infrastructure</text>
+    <text x="990" y="215" font-size="14" fill="#334155" text-anchor="middle">Bank-Grade Encryption</text>
+    <text x="990" y="235" font-size="14" fill="#334155" text-anchor="middle">OAuth 2.0 / JWT Auth</text>
+  </g>
+
+  <!-- USER FLOW SECTION -->
+  <rect x="50" y="310" width="1100" height="660" rx="15" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="600" y="350" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#0A2540" text-anchor="middle">Dynamic User Journey (Omnidirectional Hub &amp; Spoke)</text>
+
+  <!-- Connectors (Drawn first so they are under nodes) -->
+  <g stroke="#94a3b8" stroke-width="4" fill="none" marker-end="url(#arrow)">
+    <!-- Onboarding Line -->
+    <path d="M 230 460 L 350 460" />
+    <path d="M 510 460 L 620 460" />
+    
+    <!-- Hub to Spokes -->
+    <!-- To Fin Literacy -->
+    <path d="M 700 400 L 700 350 L 900 350" />
+    <path d="M 900 370 L 720 370 L 720 400" stroke-dasharray="8,8" marker-end="url(#arrow-return)"/> <!-- Return arrow -->
+    
+    <!-- To Schemes & Loans -->
+    <path d="M 780 460 L 900 460" />
+    <path d="M 900 480 L 780 480" stroke-dasharray="8,8" marker-end="url(#arrow-return)"/>
+    
+    <!-- To AI SWOT -->
+    <path d="M 700 520 L 700 710 L 900 710" />
+    <path d="M 900 730 L 720 730 L 720 520" stroke-dasharray="8,8" marker-end="url(#arrow-return)"/>
+
+    <!-- To Impact -->
+    <path d="M 780 580 L 900 580" />
+    <path d="M 900 600 L 780 600" stroke-dasharray="8,8" marker-end="url(#arrow-return)"/>
+  </g>
+
+  <!-- User Nodes -->
+  <g font-family="Arial, sans-serif">
+    
+    <!-- Phase 1: Onboarding -->
+    <rect x="70" y="420" width="160" height="80" rx="10" fill="#0A2540"/>
+    <text x="150" y="455" font-size="16" fill="#ffffff" font-weight="bold" text-anchor="middle">1. Landing</text>
+    <text x="150" y="475" font-size="12" fill="#cbd5e1" text-anchor="middle">Discover Platform</text>
+    
+    <rect x="350" y="420" width="160" height="80" rx="10" fill="#0A2540"/>
+    <text x="430" y="455" font-size="16" fill="#ffffff" font-weight="bold" text-anchor="middle">2. Auth / KYC</text>
+    <text x="430" y="475" font-size="12" fill="#cbd5e1" text-anchor="middle">Secure Onboarding</text>
+
+    <!-- Phase 2: Central Hub -->
+    <rect x="620" y="400" width="160" height="120" rx="60" fill="#2563eb" stroke="#1d4ed8" stroke-width="4"/>
+    <text x="700" y="455" font-size="18" fill="#ffffff" font-weight="bold" text-anchor="middle">User Dashboard</text>
+    <text x="700" y="475" font-size="12" fill="#bfdbfe" text-anchor="middle">(Central Hub)</text>
+    <text x="700" y="495" font-size="11" fill="#bfdbfe" text-anchor="middle">Omni-accessible</text>
+
+    <!-- Phase 3: Spokes (Always Accessible) -->
+    <!-- Fin Lit -->
+    <rect x="900" y="320" width="220" height="80" rx="10" fill="#059669"/>
+    <text x="1010" y="350" font-size="16" fill="#ffffff" font-weight="bold" text-anchor="middle">Financial Literacy</text>
+    <text x="1010" y="370" font-size="12" fill="#ecfdf5" text-anchor="middle">Modules, Quizzes, Streaks</text>
+    <text x="1010" y="385" font-size="10" fill="#ecfdf5" text-anchor="middle">Learn anytime, anywhere</text>
+
+    <!-- Schemes & Loans -->
+    <rect x="900" y="430" width="220" height="80" rx="10" fill="#FF7B00"/>
+    <text x="1010" y="460" font-size="16" fill="#ffffff" font-weight="bold" text-anchor="middle">Schemes &amp; Loans</text>
+    <text x="1010" y="480" font-size="12" fill="#fff5ed" text-anchor="middle">AI Recommendation Engine</text>
+    <text x="1010" y="495" font-size="10" fill="#fff5ed" text-anchor="middle">Partner Routing & Matches</text>
+
+    <!-- Impact -->
+    <rect x="900" y="550" width="220" height="80" rx="10" fill="#7c3aed"/>
+    <text x="1010" y="580" font-size="16" fill="#ffffff" font-weight="bold" text-anchor="middle">Community &amp; Impact</text>
+    <text x="1010" y="600" font-size="12" fill="#ede9fe" text-anchor="middle">View Macro Stats</text>
+    <text x="1010" y="615" font-size="10" fill="#ede9fe" text-anchor="middle">Success Stories &amp; Network</text>
+
+    <!-- NEW: AI SWOT Analysis -->
+    <rect x="900" y="670" width="220" height="120" rx="10" fill="#0f172a" stroke="#fcd34d" stroke-width="3"/>
+    <text x="1010" y="700" font-size="16" fill="#fcd34d" font-weight="bold" text-anchor="middle">AI Business SWOT</text>
+    <text x="1010" y="725" font-size="12" fill="#cbd5e1" text-anchor="middle">🔍 Geo-Competition Analysis</text>
+    <text x="1010" y="745" font-size="12" fill="#cbd5e1" text-anchor="middle">📈 Scaling &amp; Growth Guide</text>
+    <text x="1010" y="765" font-size="12" fill="#cbd5e1" text-anchor="middle">⚠️ Risk &amp; Pitfall Avoidance</text>
+
+    <!-- Notes box explaining the hub and spoke -->
+    <rect x="100" y="700" width="380" height="110" rx="8" fill="#fffbeb" stroke="#fde68a" stroke-width="2"/>
+    <text x="120" y="730" font-size="16" fill="#92400e" font-weight="bold">User Flow Dynamics:</text>
+    <text x="120" y="755" font-size="14" fill="#92400e">Instead of a linear path, users unlock a</text>
+    <text x="120" y="775" font-size="14" fill="#92400e">Central Dashboard hub, granting instant, on-</text>
+    <text x="120" y="795" font-size="14" fill="#92400e">demand access to all services and AI tools.</text>
+  </g>
+
+  <!-- Definitions for Arrows -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#94a3b8" />
+    </marker>
+    <marker id="arrow-return" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#94a3b8" />
+    </marker>
+  </defs>
+</svg>

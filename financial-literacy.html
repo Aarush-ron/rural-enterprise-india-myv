@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gramventure Academy | E-Learning Portal</title>
+<meta name="description" content="Financial literacy courses tailored for rural entrepreneurs.">
+<link rel="icon" href="assets/img/gramventure_logo.jpg">
+<!-- Load the new EdTech specific stylesheet -->
+<link rel="stylesheet" href="assets/css/edutech.css">
+<meta name="view-transition" content="same-origin">
+</head>
+<body>
+
+<header class="academy-header">
+  <div class="academy-header-row">
+    <a href="index.html" class="academy-brand">
+      <div class="logo-box">G</div>
+      <h1>Gramventure Academy</h1>
+    </a>
+
+    <!-- CSS Grid Middle Column Toggle Switcher -->
+    <div class="app-switcher" id="mainSwitcher" style="display:inline-flex; background:#f1f5f9; border-radius:24px; padding:4px; align-items:center; position:absolute; left:50%; transform:translateX(-50%); z-index:10;">
+      <div class="switcher-bg" style="position:absolute; top:4px; left:4px; bottom:4px; width:94px; background:#fff; border-radius:20px; box-shadow:0 2px 8px rgba(0,0,0,0.1); transition:transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); transform:translateX(94px);"></div>
+      <a href="index.html" class="switch-btn" style="position:relative; z-index:1; padding:8px 16px; font-size:14px; font-weight:600; color:#64748b; text-decoration:none; width: 94px; text-align:center; display:inline-block; box-sizing:border-box;">Business</a>
+      <a href="financial-literacy.html" class="switch-btn" style="position:relative; z-index:1; padding:8px 16px; font-size:14px; font-weight:700; color:#6d28d9; text-decoration:none; width: 94px; text-align:center; display:inline-block; box-sizing:border-box;">Academy</a>
+    </div>
+
+    <div class="academy-header-right">
+      <div class="streak-counter">
+        🔥 12 Day Streak
+      </div>
+      <div class="user-profile">
+        JA
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="academy-layout">
+  <!-- Sidebar Navigation -->
+  <aside class="academy-sidebar">
+    <ul class="nav-menu">
+      <li><a href="#" class="active"><span class="nav-icon">📚</span> My Courses</a></li>
+      <li><a href="#"><span class="nav-icon">🧭</span> Discover</a></li>
+      <li><a href="#"><span class="nav-icon">🏆</span> Leaderboard</a></li>
+      <li><a href="#"><span class="nav-icon">⚙️</span> Settings</a></li>
+    </ul>
+    
+    <div style="margin-top: 40px; padding: 20px; background: linear-gradient(135deg, #ede9fe, #ddd6fe); border-radius: 16px;">
+      <h4 style="margin: 0 0 8px; color: #4c1d95; font-weight: 700;">Level 3 Learner</h4>
+      <p style="margin: 0; font-size: 14px; color: #5b21b6;">Complete 2 more modules to unlock the "Master" badge!</p>
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="academy-main">
+    <div class="page-header">
+      <h2>Welcome back, Jitendra! 👋</h2>
+      <p>Pick up where you left off. You're doing great!</p>
+    </div>
+
+    <div class="course-grid">
+      <!-- Course 1 -->
+      <div class="course-card">
+        <div class="course-thumb">
+          📊
+          <div class="course-tag">In Progress</div>
+        </div>
+        <div class="course-content">
+          <h3>Understanding Margin Capital</h3>
+          <p>Learn how the 10% margin requirement works and how to secure funding easily.</p>
+          
+          <div class="progress-container">
+            <div class="progress-fill" style="width: 75%;"></div>
+          </div>
+          <div class="progress-text">
+            <span>Module 3 of 4</span>
+            <span>75%</span>
+          </div>
+
+          <a href="#" class="edu-btn">Continue Learning</a>
+        </div>
+      </div>
+
+      <!-- Course 2 -->
+      <div class="course-card">
+        <div class="course-thumb orange">
+          🏦
+          <div class="course-tag">Not Started</div>
+        </div>
+        <div class="course-content">
+          <h3>Loan Repayment Strategies</h3>
+          <p>Discover tips on managing quarterly EMIs and leveraging moratorium periods effectively.</p>
+          
+          <div class="progress-container">
+            <div class="progress-fill" style="width: 0%;"></div>
+          </div>
+          <div class="progress-text">
+            <span>Module 1 of 5</span>
+            <span>0%</span>
+          </div>
+
+          <a href="#" class="edu-btn" style="background: #e2e8f0; color: #475569;">Start Course</a>
+        </div>
+      </div>
+
+      <!-- Course 3 -->
+      <div class="course-card">
+        <div class="course-thumb green">
+          🌱
+          <div class="course-tag" style="background:#10b981; color:white;">Completed</div>
+        </div>
+        <div class="course-content">
+          <h3>Business Scaling 101</h3>
+          <p>How to transition from the Micro Finance Scheme to the Term Loan Scheme as you grow.</p>
+          
+          <div class="progress-container">
+            <div class="progress-fill" style="width: 100%; background: #10b981;"></div>
+          </div>
+          <div class="progress-text">
+            <span>Module 3 of 3</span>
+            <span style="color:#10b981;">100%</span>
+          </div>
+
+          <a href="#" class="edu-btn" style="background: #10b981;">Review Course</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const switcher = document.getElementById('mainSwitcher');
+    if (!switcher) return;
+    const bg = switcher.querySelector('.switcher-bg');
+    const btns = switcher.querySelectorAll('.switch-btn');
+    
+    btns.forEach((btn, index) => {
+      btn.addEventListener('click', (e) => {
+        // If it's already active, do nothing
+        if (btn.style.color === 'rgb(15, 23, 42)' || btn.style.color === 'rgb(109, 40, 217)' || btn.style.fontWeight === '700') {
+           // We are already on this page
+        } else {
+           e.preventDefault();
+           const targetUrl = btn.href;
+           
+           // Slide the background
+           bg.style.transform = index === 0 ? 'translateX(0)' : 'translateX(94px)';
+           
+           // Update colors immediately for feel
+           btns[0].style.color = index === 0 ? '#0f172a' : '#64748b';
+           btns[0].style.fontWeight = index === 0 ? '700' : '600';
+           
+           btns[1].style.color = index === 1 ? '#6d28d9' : '#64748b';
+           btns[1].style.fontWeight = index === 1 ? '700' : '600';
+
+           // Wait for slide animation (300ms) then navigate
+           setTimeout(() => {
+             window.location.href = targetUrl;
+           }, 300);
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>

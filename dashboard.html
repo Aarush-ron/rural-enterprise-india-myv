@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Dashboard | Gramventure</title>
+<meta name="description" content="Your Gramventure dashboard.">
+<link rel="icon" href="assets/img/gramventure_logo.jpg">
+<link rel="stylesheet" href="assets/css/style.css">
+
+  <meta name="view-transition" content="same-origin">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to Main Content</a>
+
+<header class="site-header gov-header">
+  <div class="header-row">
+    <a class="brand" href="index.html" style="text-decoration:none; display:flex; align-items:center;">
+      <img src="assets/img/gramventure_logo.jpg" alt="Gramventure Logo" style="width: 75px; height: 75px; margin-right: 16px; object-fit: contain; mix-blend-mode: multiply;">
+      <div class="brand-text">
+        <h1 class="gov-title">Gramventure</h1>
+        <p class="gov-subtitle">Empowering Local Communities</p>
+      </div>
+    </a>
+    
+      <div class="app-switcher" id="mainSwitcher" style="display:inline-flex; background:#f1f5f9; border-radius:24px; padding:4px; align-items:center; ">
+        <div class="switcher-bg" style="position:absolute; top:4px; left:4px; bottom:4px; width:94px; background:#fff; border-radius:20px; box-shadow:0 2px 8px rgba(0,0,0,0.1); transition:transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); transform:translateX(0);"></div>
+        <a href="index.html" class="switch-btn" style="position:relative; z-index:1; padding:8px 16px; font-size:14px; font-weight:700; color:#0f172a; text-decoration:none; width: 94px; text-align:center; display:inline-block; box-sizing:border-box;">Business</a>
+        <a href="financial-literacy.html" class="switch-btn" style="position:relative; z-index:1; padding:8px 16px; font-size:14px; font-weight:600; color:#64748b; text-decoration:none; width: 94px; text-align:center; display:inline-block; box-sizing:border-box;">Academy</a>
+      </div>
+
+    <div class="header-actions" style="display: flex; gap: 16px; align-items: center;">
+      <select class="lang-select" aria-label="Select language" style="border: 1px solid var(--grey-200); padding: 10px 14px; border-radius: 8px; font-weight: 600; font-size: 14px; background: #fff; cursor: pointer; color: var(--navy); outline: none;">
+        <option>English</option><option>हिन्दी</option>
+      </select>
+      <form class="search-form gov-search" role="search" onsubmit="return false;">
+        <label for="siteSearch" class="visually-hidden" style="position:absolute;left:-9999px;">Search</label>
+        <input id="siteSearch" type="text" placeholder="Search schemes, loans, businesses, terms...">
+        <button type="submit" aria-label="Search">🔍</button>
+      </form>
+    </div>
+  </div>
+  <nav class="main-nav gov-nav" aria-label="Primary">
+    <div class="container">
+      <ul><li><a class="" href="index.html">Home</a></li><li><a class="" href="schemes-benefits.html">Schemes & Benefits</a></li><li><a class="" href="loans-facility.html">Loans Facility</a></li><li><a class="" href="government-initiatives.html">Core Initiatives</a></li><li><a class="" href="impact-data.html">Impact & Data</a></li>
+      <li class="login-nav"><a id="loginBtn" href="login.html">👤 Login</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<main id="main">
+
+<div class="page-body">
+  <div class="dash-grid">
+    <aside class="dash-side">
+      <div class="avatar" id="dashAvatar">RE</div>
+      <h3 id="dashName" style="margin-bottom:2px;">Welcome</h3>
+      <p class="muted" id="dashEmail" style="margin-top:0;">—</p>
+      <nav class="dash-nav" style="margin-top:14px;">
+        <a class="active" href="dashboard.html">📊 Dashboard</a>
+        <a href="start-business.html">🏪 Find / Start Business</a>
+        <a href="loans-facility.html">🪙 Loans Facility</a>
+        <a href="financial-literacy.html">📘 Financial Literacy</a>
+        <a href="#" id="logoutSide">🚪 Logout</a>
+      </nav>
+    </aside>
+    <div>
+      <div id="noUserAlert" class="alert alert-amber" style="display:none;">
+        You're browsing in guest mode with sample data. <a href="login.html">Login</a> or <a href="register.html">Register</a> to save your progress.
+      </div>
+
+      <div class="kpi-row">
+        <div class="kpi"><b id="kpiApps">0</b><span>Applications</span></div>
+        <div class="kpi"><b id="kpiLoan">₹0</b><span>Active Loan</span></div>
+        <div class="kpi"><b id="kpiEmi">₹0</b><span>Upcoming EMI</span></div>
+        <div class="kpi"><b id="kpiScore">720</b><span>Credit Score (est.)</span></div>
+      </div>
+
+      <div class="card" id="upcomingEmiCard" style="display:none;">
+        <div class="flex-between">
+          <h4 style="margin:0;">Upcoming EMI</h4>
+          <span class="badge badge-green">Active Loan</span>
+        </div>
+        <div class="summary-row"><span>Business</span><span id="emiBiz">—</span></div>
+        <div class="summary-row"><span>Monthly EMI</span><span id="emiAmt">—</span></div>
+        <div class="summary-row"><span>Due Date</span><span id="emiDate">—</span></div>
+        <div class="summary-row"><span>Remaining Tenure</span><span id="emiTenure">—</span></div>
+        <button class="btn btn-outline btn-sm" style="margin-top:12px;">Pay Now →</button>
+      </div>
+
+      <div class="card">
+        <h4 style="margin-top:0;">My Applications</h4>
+        <div id="applicationsList"><p class="muted">No applications yet.</p></div>
+        <a class="btn btn-saffron" style="margin-top:6px;" href="start-business.html">Start a New Business Application →</a>
+      </div>
+
+      <div class="card">
+        <h4 style="margin-top:0;">Recommended for You</h4>
+        <div id="recoList"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <h4>Gramventure</h4>
+      <p>An initiative connecting rural entrepreneurs with financial literacy, schemes, loans and market opportunities to build a self-reliant rural economy.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="financial-literacy.html">Financial Literacy</a></li>
+        <li><a href="schemes-benefits.html">Schemes &amp; Benefits</a></li>
+        <li><a href="loans-facility.html">Loans Facility</a></li>
+        <li><a href="start-business.html">Start a Business</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>About</h4>
+      <ul>
+        <li><a href="government-initiatives.html">Core Initiatives</a></li>
+        <li><a href="impact-data.html">Impact &amp; Data</a></li>
+        <li><a href="#">RTI</a></li>
+        <li><a href="#">Terms of Use</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li>Toll-Free: 1800-11-0001</li>
+        <li>helpdesk@gramventure.com</li>
+        <li>Mon–Sat, 9:00 AM – 6:00 PM IST</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    Content owned by Empowering Local Communities (demo build) &nbsp;|&nbsp; Last updated: September 2026
+  </div>
+</footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", ()=>{
+  const user = reiGetUser();
+  if(!user){
+    document.getElementById("noUserAlert").style.display = "block";
+    document.getElementById("dashName").textContent = "Guest User";
+    document.getElementById("dashEmail").textContent = "Not logged in";
+    document.getElementById("dashAvatar").textContent = "GU";
+  } else {
+    document.getElementById("dashName").textContent = user.name;
+    document.getElementById("dashEmail").textContent = user.email || user.phone || "";
+    document.getElementById("dashAvatar").textContent = (user.name||"RE").split(" ").map(w=>w[0]).slice(0,2).join("").toUpperCase();
+  }
+
+  const app = JSON.parse(localStorage.getItem("reiBusinessApp") || "null");
+  if(app){
+    document.getElementById("kpiApps").textContent = "1";
+    if(app.status === "granted"){
+      document.getElementById("kpiLoan").textContent = reiFormatINR(app.loanAmount||0);
+      document.getElementById("kpiEmi").textContent = reiFormatINR(Math.round(app.emi||0));
+      document.getElementById("upcomingEmiCard").style.display = "block";
+      document.getElementById("emiBiz").textContent = app.businessName || "—";
+      document.getElementById("emiAmt").textContent = reiFormatINR(Math.round(app.emi||0)) + " / month";
+      document.getElementById("emiDate").textContent = "5th of every month";
+      document.getElementById("emiTenure").textContent = (app.tenure||0) + " months";
+    }
+    document.getElementById("applicationsList").innerHTML = `
+      <div class="biz-list-item">
+        <div>
+          <b>${app.businessName || "Business Application"}</b>
+          <div class="biz-meta"><span>Project cost: ${reiFormatINR(app.projectCost||0)}</span><span>Location: ${app.location||"—"}</span></div>
+        </div>
+        <span class="badge ${app.status==='granted' ? 'badge-green' : 'badge-amber'}">${app.status==='granted' ? 'Loan Granted' : 'In Progress'}</span>
+      </div>`;
+  }
+
+  document.getElementById("recoList").innerHTML = REI_DATA.schemes.slice(0,3).map(s=>`
+    <div class="summary-row"><span>${s.name}</span><a href="schemes-benefits.html">View →</a></div>
+  `).join("");
+
+  const lo = document.getElementById("logoutSide");
+  if(lo) lo.addEventListener("click",(e)=>{ e.preventDefault(); reiLogout(); });
+});
+</script>
+
+<script src="assets/js/animate-stats.js"></script>
+<nav id="mobileBottomNav" class="mobile-nav"><button onclick="window.location.href='dashboard.html'">Dashboard</button><button onclick="window.location.href='start-business.html'">Wizard</button><a href="financial-literacy.html">Courses</a></nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const switcher = document.getElementById('mainSwitcher');
+    if (!switcher) return;
+    const bg = switcher.querySelector('.switcher-bg');
+    const btns = switcher.querySelectorAll('.switch-btn');
+    
+    btns.forEach((btn, index) => {
+      btn.addEventListener('click', (e) => {
+        // If it's already active, do nothing
+        if (btn.style.color === 'rgb(15, 23, 42)' || btn.style.color === 'rgb(109, 40, 217)' || btn.style.fontWeight === '700') {
+           // We are already on this page
+        } else {
+           e.preventDefault();
+           const targetUrl = btn.href;
+           
+           // Slide the background
+           bg.style.transform = index === 0 ? 'translateX(0)' : 'translateX(94px)';
+           
+           // Update colors immediately for feel
+           btns[0].style.color = index === 0 ? '#0f172a' : '#64748b';
+           btns[0].style.fontWeight = index === 0 ? '700' : '600';
+           
+           btns[1].style.color = index === 1 ? '#6d28d9' : '#64748b';
+           btns[1].style.fontWeight = index === 1 ? '700' : '600';
+
+           // Wait for slide animation (300ms) then navigate
+           setTimeout(() => {
+             window.location.href = targetUrl;
+           }, 300);
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

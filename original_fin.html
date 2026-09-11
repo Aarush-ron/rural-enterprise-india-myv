@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Literacy | Gramventure</title>
+<meta name="description" content="Short daily lessons on savings, credit, loans and budgeting.">
+<link rel="icon" href="assets/img/gramventure_logo.jpg">
+<link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to Main Content</a>
+
+<header class="site-header gov-header">
+  <div class="header-row">
+    <a class="brand" href="index.html" style="text-decoration:none; display:flex; align-items:center;">
+      <img src="assets/img/gramventure_logo.jpg" alt="Gramventure Logo" style="width: 75px; height: 75px; margin-right: 16px; object-fit: contain; mix-blend-mode: multiply;">
+      <div class="brand-text">
+        <h1 class="gov-title">Gramventure</h1>
+        <p class="gov-subtitle">Empowering Local Communities</p>
+      </div>
+    </a>
+    <div class="header-actions" style="display: flex; gap: 16px; align-items: center;">
+      <select class="lang-select" aria-label="Select language" style="border: 1px solid var(--grey-200); padding: 10px 14px; border-radius: 8px; font-weight: 600; font-size: 14px; background: #fff; cursor: pointer; color: var(--navy); outline: none;">
+        <option>English</option><option>हिन्दी</option>
+      </select>
+      <form class="search-form gov-search" role="search" onsubmit="return false;">
+        <label for="siteSearch" class="visually-hidden" style="position:absolute;left:-9999px;">Search</label>
+        <input id="siteSearch" type="text" placeholder="Search schemes, loans, businesses, terms...">
+        <button type="submit" aria-label="Search">🔍</button>
+      </form>
+    </div>
+  </div>
+  <nav class="main-nav gov-nav" aria-label="Primary">
+    <div class="container">
+      <ul><li><a class="" href="index.html">Home</a></li><li><a class="" class="active" href="financial-literacy.html">Financial Literacy</a></li><li><a class="" href="schemes-benefits.html">Schemes & Benefits</a></li><li><a class="" href="loans-facility.html">Loans Facility</a></li><li><a class="" href="government-initiatives.html">Core Initiatives</a></li><li><a class="" href="impact-data.html">Impact & Data</a></li>
+      <li class="login-nav"><a id="loginBtn" href="login.html">👤 Login</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<main id="main">
+
+<section class="page-hero">
+  <div class="container">
+    <p class="breadcrumb">Home / Financial Literacy</p>
+    <h2>Financial Literacy</h2>
+    <p class="lead">Build practical money knowledge in short, easy lessons — designed for busy entrepreneurs, two minutes at a time.</p>
+  </div>
+</section>
+<div class="page-body">
+  <div class="two-col">
+    <div>
+      <h3 class="section-title">Today's Modules</h3>
+      <div id="moduleList"></div>
+    </div>
+    <div>
+      <div class="card">
+        <h4 style="margin-top:0;">Your Learning Progress</h4>
+        <div class="progress-bar"><div style="width:45%"></div></div>
+        <p class="muted">9 of 20 modules completed</p>
+        <hr style="border:none;border-top:1px solid var(--grey-200);margin:14px 0;">
+        <p class="muted" style="margin-bottom:10px;">Streak</p>
+        <div class="kpi-row" style="grid-template-columns:1fr 1fr;margin-bottom:0;">
+          <div class="kpi"><b>6</b><span>Day streak</span></div>
+          <div class="kpi"><b>420</b><span>Points earned</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <h4 style="margin-top:0;">Why it matters</h4>
+        <p class="muted">Entrepreneurs who complete financial literacy modules are 2.3× more likely to have their loan applications approved on the first attempt.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <h4>Gramventure</h4>
+      <p>An initiative connecting rural entrepreneurs with financial literacy, schemes, loans and market opportunities to build a self-reliant rural economy.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="financial-literacy.html">Financial Literacy</a></li>
+        <li><a href="schemes-benefits.html">Schemes &amp; Benefits</a></li>
+        <li><a href="loans-facility.html">Loans Facility</a></li>
+        <li><a href="start-business.html">Start a Business</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>About</h4>
+      <ul>
+        <li><a href="government-initiatives.html">Core Initiatives</a></li>
+        <li><a href="impact-data.html">Impact &amp; Data</a></li>
+        <li><a href="#">RTI</a></li>
+        <li><a href="#">Terms of Use</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li>Toll-Free: 1800-11-0001</li>
+        <li>helpdesk@gramventure.com</li>
+        <li>Mon–Sat, 9:00 AM – 6:00 PM IST</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    Content owned by Empowering Local Communities (demo build) &nbsp;|&nbsp; Last updated: September 2026
+  </div>
+</footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", ()=>{
+  document.getElementById("moduleList").innerHTML = REI_DATA.literacyModules.map((m,i)=>`
+    <div class="card" style="display:flex;justify-content:space-between;align-items:center;">
+      <div>
+        <span class="badge badge-blue">${m.tag}</span>
+        <h4 style="margin:8px 0 4px;">${m.title}</h4>
+        <p class="muted" style="margin:0;">${m.mins} min read &middot; ${m.level}</p>
+      </div>
+      <button class="btn btn-outline btn-sm" onclick="alert('Opening: ${m.title.replace(/'/g,"")}')">Start →</button>
+    </div>
+  `).join("");
+});
+</script>
+
+<script src="assets/js/animate-stats.js"></script>
+</body>
+</html>

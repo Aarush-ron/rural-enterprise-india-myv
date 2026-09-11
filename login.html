@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login | Gramventure</title>
+<meta name="description" content="Login to your Gramventure account.">
+<link rel="icon" href="assets/img/gramventure_logo.jpg">
+<link rel="stylesheet" href="assets/css/style.css">
+
+  <meta name="view-transition" content="same-origin">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to Main Content</a>
+
+<header class="site-header gov-header">
+  <div class="header-row">
+    <a class="brand" href="index.html" style="text-decoration:none; display:flex; align-items:center;">
+      <img src="assets/img/gramventure_logo.jpg" alt="Gramventure Logo" style="width: 75px; height: 75px; margin-right: 16px; object-fit: contain; mix-blend-mode: multiply;">
+      <div class="brand-text">
+        <h1 class="gov-title">Gramventure</h1>
+        <p class="gov-subtitle">Empowering Local Communities</p>
+      </div>
+    </a>
+    
+      <div class="app-switcher" id="mainSwitcher" style="display:inline-flex; background:#f1f5f9; border-radius:24px; padding:4px; align-items:center; ">
+        <div class="switcher-bg" style="position:absolute; top:4px; left:4px; bottom:4px; width:94px; background:#fff; border-radius:20px; box-shadow:0 2px 8px rgba(0,0,0,0.1); transition:transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); transform:translateX(0);"></div>
+        <a href="index.html" class="switch-btn" style="position:relative; z-index:1; padding:8px 16px; font-size:14px; font-weight:700; color:#0f172a; text-decoration:none; width: 94px; text-align:center; display:inline-block; box-sizing:border-box;">Business</a>
+        <a href="financial-literacy.html" class="switch-btn" style="position:relative; z-index:1; padding:8px 16px; font-size:14px; font-weight:600; color:#64748b; text-decoration:none; width: 94px; text-align:center; display:inline-block; box-sizing:border-box;">Academy</a>
+      </div>
+
+    <div class="header-actions" style="display: flex; gap: 16px; align-items: center;">
+      <select class="lang-select" aria-label="Select language" style="border: 1px solid var(--grey-200); padding: 10px 14px; border-radius: 8px; font-weight: 600; font-size: 14px; background: #fff; cursor: pointer; color: var(--navy); outline: none;">
+        <option>English</option><option>हिन्दी</option>
+      </select>
+      <form class="search-form gov-search" role="search" onsubmit="return false;">
+        <label for="siteSearch" class="visually-hidden" style="position:absolute;left:-9999px;">Search</label>
+        <input id="siteSearch" type="text" placeholder="Search schemes, loans, businesses, terms...">
+        <button type="submit" aria-label="Search">🔍</button>
+      </form>
+    </div>
+  </div>
+  <nav class="main-nav gov-nav" aria-label="Primary">
+    <div class="container">
+      <ul><li><a class="" href="index.html">Home</a></li><li><a class="" href="schemes-benefits.html">Schemes & Benefits</a></li><li><a class="" href="loans-facility.html">Loans Facility</a></li><li><a class="" href="government-initiatives.html">Core Initiatives</a></li><li><a class="" href="impact-data.html">Impact & Data</a></li>
+      <li class="login-nav"><a class="active" href="login.html">👤 Login</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<main id="main">
+
+<div class="page-body" style="max-width:460px;">
+  <div class="card">
+    <h2 style="margin-top:0;">Login to Your Account</h2>
+    <p class="muted">Access your dashboard, applications and documents.</p>
+    <div class="alert alert-blue">Demo mode: enter any name-like email and any password to continue.</div>
+    <form id="loginForm">
+      <div class="form-row">
+        <label for="email">Email or Mobile Number</label>
+        <input type="text" id="email" placeholder="e.g. ramesh.kumar@example.com" required>
+      </div>
+      <div class="form-row">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="••••••••" required>
+      </div>
+      <button class="btn btn-primary btn-block" type="submit">Login →</button>
+    </form>
+    <p style="text-align:center;margin-top:16px;font-size:13.5px;">New to Gramventure? <a href="register.html">Register here</a></p>
+  </div>
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <h4>Gramventure</h4>
+      <p>An initiative connecting rural entrepreneurs with financial literacy, schemes, loans and market opportunities to build a self-reliant rural economy.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="financial-literacy.html">Financial Literacy</a></li>
+        <li><a href="schemes-benefits.html">Schemes &amp; Benefits</a></li>
+        <li><a href="loans-facility.html">Loans Facility</a></li>
+        <li><a href="start-business.html">Start a Business</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>About</h4>
+      <ul>
+        <li><a href="government-initiatives.html">Core Initiatives</a></li>
+        <li><a href="impact-data.html">Impact &amp; Data</a></li>
+        <li><a href="#">RTI</a></li>
+        <li><a href="#">Terms of Use</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li>Toll-Free: 1800-11-0001</li>
+        <li>helpdesk@gramventure.com</li>
+        <li>Mon–Sat, 9:00 AM – 6:00 PM IST</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    Content owned by Empowering Local Communities (demo build) &nbsp;|&nbsp; Last updated: September 2026
+  </div>
+</footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  const email = document.getElementById("email").value.trim();
+  const namePart = email.split("@")[0].replace(/[._]/g," ").replace(/\b\w/g, c=>c.toUpperCase()) || "Rural Entrepreneur";
+  let user = reiGetUser();
+  if(!user){
+    user = { name:namePart, email:email, phone:"", state:"", createdAt:new Date().toISOString() };
+  }
+  reiSetUser(user);
+  window.location.href = "dashboard.html";
+});
+</script>
+
+<script src="assets/js/animate-stats.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const switcher = document.getElementById('mainSwitcher');
+    if (!switcher) return;
+    const bg = switcher.querySelector('.switcher-bg');
+    const btns = switcher.querySelectorAll('.switch-btn');
+    
+    btns.forEach((btn, index) => {
+      btn.addEventListener('click', (e) => {
+        // If it's already active, do nothing
+        if (btn.style.color === 'rgb(15, 23, 42)' || btn.style.color === 'rgb(109, 40, 217)' || btn.style.fontWeight === '700') {
+           // We are already on this page
+        } else {
+           e.preventDefault();
+           const targetUrl = btn.href;
+           
+           // Slide the background
+           bg.style.transform = index === 0 ? 'translateX(0)' : 'translateX(94px)';
+           
+           // Update colors immediately for feel
+           btns[0].style.color = index === 0 ? '#0f172a' : '#64748b';
+           btns[0].style.fontWeight = index === 0 ? '700' : '600';
+           
+           btns[1].style.color = index === 1 ? '#6d28d9' : '#64748b';
+           btns[1].style.fontWeight = index === 1 ? '700' : '600';
+
+           // Wait for slide animation (300ms) then navigate
+           setTimeout(() => {
+             window.location.href = targetUrl;
+           }, 300);
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
