@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Loans Facility | Gramventure</title>
 <meta name="description" content="Compare loan products and calculate EMI for your rural business.">
-<link rel="icon" href="assets/img/gramventure_logo.jpg">
+<link rel="icon" href="assets/img/gramventure_logo_new.png">
 <link rel="stylesheet" href="assets/css/style.css">
 
   <meta name="view-transition" content="same-origin">
@@ -17,9 +17,9 @@
 <header class="site-header gov-header">
   <div class="header-row">
     <a class="brand" href="index.html" style="text-decoration:none; display:flex; align-items:center;">
-      <img src="assets/img/gramventure_logo.jpg" alt="Gramventure Logo" style="width: 75px; height: 75px; margin-right: 16px; object-fit: contain; mix-blend-mode: multiply;">
+      <img src="assets/img/gramventure_logo_new.png" alt="Gramventure Logo" style="height: 50px; margin-right: 12px; object-fit: contain;">
       <div class="brand-text">
-        <h1 class="gov-title">Gramventure</h1>
+        
         <p class="gov-subtitle">Empowering Local Communities</p>
       </div>
     </a>
@@ -66,21 +66,20 @@
     </div>
     <div>
       <div class="card">
-        <h4 style="margin-top:0;">Quick EMI Calculator</h4>
+        <h4 style="margin-top:0;">Live EMI Calculator</h4>
         <div class="form-row">
-          <label for="loanAmt">Loan amount (₹)</label>
-          <input type="number" id="loanAmt" value="140000">
+          <label for="loanAmt">Loan amount: <strong id="amtVal">₹1,40,000</strong></label>
+          <input type="range" id="loanAmt" min="10000" max="1000000" step="10000" value="140000">
         </div>
         <div class="form-row">
-          <label for="loanRate">Interest rate (% p.a.)</label>
-          <input type="number" id="loanRate" value="8.5" step="0.1">
+          <label for="loanRate">Interest rate: <strong id="rateVal">8.5% p.a.</strong></label>
+          <input type="range" id="loanRate" min="5.0" max="15.0" step="0.1" value="8.5">
         </div>
         <div class="form-row">
-          <label for="loanTenure">Tenure (months)</label>
-          <input type="number" id="loanTenure" value="36">
+          <label for="loanTenure">Tenure: <strong id="tenureVal">36 months</strong></label>
+          <input type="range" id="loanTenure" min="6" max="120" step="6" value="36">
         </div>
-        <button class="btn btn-primary btn-block" id="calcEmiBtn">Calculate EMI</button>
-        <div id="emiResult" style="margin-top:14px;"></div>
+        <div id="emiResult" style="margin-top:24px; display:flex; gap:20px; align-items:center;"></div>
       </div>
       <div class="card">
         <a class="btn btn-saffron btn-block" href="start-business.html">Start a Loan Application →</a>
@@ -146,19 +145,57 @@ document.addEventListener("DOMContentLoaded", ()=>{
     </div>
   `).join("");
 
+  const amtInput = document.getElementById("loanAmt");
+  const rateInput = document.getElementById("loanRate");
+  const tenureInput = document.getElementById("loanTenure");
+  const amtVal = document.getElementById("amtVal");
+  const rateVal = document.getElementById("rateVal");
+  const tenureVal = document.getElementById("tenureVal");
+
   function calc(){
-    const p = parseFloat(document.getElementById("loanAmt").value)||0;
-    const r = parseFloat(document.getElementById("loanRate").value)||0;
-    const n = parseInt(document.getElementById("loanTenure").value)||1;
+    const p = parseFloat(amtInput.value)||0;
+    const r = parseFloat(rateInput.value)||0;
+    const n = parseInt(tenureInput.value)||1;
+    
+    amtVal.textContent = reiFormatINR(p);
+    rateVal.textContent = r.toFixed(1) + "% p.a.";
+    tenureVal.textContent = n + " months";
+
     const emi = reiEMI(p,r,n);
     const total = emi*n;
-    document.getElementById("emiResult").innerHTML = `
-      <div class="summary-row"><span>Monthly EMI</span><span>${reiFormatINR(Math.round(emi))}</span></div>
-      <div class="summary-row"><span>Total Payable</span><span>${reiFormatINR(Math.round(total))}</span></div>
-      <div class="summary-row"><span>Total Interest</span><span>${reiFormatINR(Math.round(total-p))}</span></div>
+    const interest = total-p;
+    
+    const principalPct = total > 0 ? (p / total) * 100 : 100;
+    const interestPct = total > 0 ? (interest / total) * 100 : 0;
+
+    const res = document.getElementById("emiResult");
+    
+    res.innerHTML = `
+      <div style="flex:1;">
+        <div class="summary-row"><span>Monthly EMI</span><span class="flash-text" style="font-size:18px; font-weight:800; color:var(--navy);">${reiFormatINR(Math.round(emi))}</span></div>
+        <div class="summary-row"><span>Total Payable</span><span class="flash-text">${reiFormatINR(Math.round(total))}</span></div>
+        <div class="summary-row"><span style="display:flex;align-items:center;gap:4px;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--saffron);"></span> Total Interest</span><span class="flash-text">${reiFormatINR(Math.round(interest))}</span></div>
+        <div class="summary-row" style="margin-top:-6px;"><span style="display:flex;align-items:center;gap:4px;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--navy);"></span> Principal</span><span class="flash-text">${reiFormatINR(Math.round(p))}</span></div>
+      </div>
+      <div style="width: 100px; height: 100px; flex-shrink:0;">
+        <svg viewBox="0 0 36 36" style="width: 100%; height: 100%; transform: rotate(-90deg);">
+          <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="var(--navy)" stroke-width="6" stroke-dasharray="${principalPct}, 100" style="transition: stroke-dasharray 0.3s ease;" />
+          <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="var(--saffron)" stroke-width="6" stroke-dasharray="${interestPct}, 100" stroke-dashoffset="-${principalPct}" style="transition: stroke-dasharray 0.3s ease, stroke-dashoffset 0.3s ease;" />
+        </svg>
+      </div>
     `;
+
+    const els = res.querySelectorAll('.flash-text');
+    els.forEach(el => {
+      el.style.animation = 'none';
+      void el.offsetHeight; // trigger reflow
+      el.style.animation = null; 
+    });
   }
-  document.getElementById("calcEmiBtn").addEventListener("click", calc);
+  amtInput.addEventListener("input", calc);
+  rateInput.addEventListener("input", calc);
+  tenureInput.addEventListener("input", calc);
+  
   calc();
 });
 </script>

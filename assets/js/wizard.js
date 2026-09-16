@@ -50,10 +50,29 @@ let wiz = {
 };
 
 function wizGoto(step){
-  wiz.step = step;
-  renderProgress();
-  renderStep();
-  window.scrollTo({top: document.getElementById("wizardTop").offsetTop - 20, behavior:"smooth"});
+  const panel = document.getElementById("wizardCard");
+  if(panel.innerHTML.trim() !== "") {
+    panel.style.transition = "opacity 150ms ease-out, transform 150ms ease-out";
+    panel.style.opacity = 0;
+    panel.style.transform = "translateX(15px)";
+  }
+  
+  setTimeout(() => {
+    wiz.step = step;
+    renderProgress();
+    renderStep();
+    window.scrollTo({top: document.getElementById("wizardTop").offsetTop - 20, behavior:"smooth"});
+    
+    panel.style.transition = "none";
+    panel.style.opacity = 0;
+    panel.style.transform = "translateX(-15px)";
+    
+    void panel.offsetWidth; // Trigger reflow
+    
+    panel.style.transition = "opacity 150ms ease-out, transform 150ms ease-out";
+    panel.style.opacity = 1;
+    panel.style.transform = "translateX(0)";
+  }, panel.innerHTML.trim() !== "" ? 150 : 0);
 }
 
 function renderProgress(){
@@ -147,8 +166,11 @@ function stepList(){
 function stepAnalysis(){
   return cardShell(`
     <div class="premium-ai-container">
-      <h3 class="premium-ai-header">
-        <span style="font-size:28px">✨</span> Hyper-Local Business Feasibility Report
+      <div style="display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg, var(--green-dark), var(--green)); color:#fff; padding:4px 10px; font-weight:700; font-size:11px; border-radius:20px; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:12px; box-shadow: 0 2px 6px rgba(21,128,61,0.2);">
+        <span style="width:6px; height:6px; background:#fff; border-radius:50%; animation: pulseSubtle 1.5s infinite;"></span> National AI Advisory
+      </div>
+      <h3 class="premium-ai-header" style="background:var(--navy); -webkit-background-clip:text;">
+        <span style="font-size:28px">✦</span> Hyper-Local Business Feasibility Report
       </h3>
       <p class="muted" style="margin-top:0; font-size:15px;">AI-generated localized strategy for <strong style="color:var(--navy)">${wiz.businessName}</strong> in <strong style="color:var(--navy)">${wiz.location}</strong>.</p>
       
@@ -276,11 +298,18 @@ function stepCost(){
       <input type="number" id="projCost" value="${wiz.ownContribution}">
       <p class="hint">The tool will automatically calculate your feasible project scale based on this.</p>
     </div>
-    <div class="card" style="background:var(--grey-100);">
-      <div class="summary-row"><span>Available Own Contribution (10%)</span><span id="cOwn">${reiFormatINR(wiz.ownContribution)}</span></div>
-      <div class="summary-row"><span>Maximum Loan Eligibility (90%)</span><span id="cLoan">+ ${reiFormatINR(wiz.loanAmount)}</span></div>
-      <div class="summary-row" style="border-top:1px solid var(--grey-200); margin-top:8px; padding-top:8px; font-weight:700; color:var(--navy);">
-        <span>Total Feasible Project Cost</span><span id="cProj">${reiFormatINR(wiz.projectCost)}</span>
+    <div class="stats-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:24px;">
+      <div class="stat-card" style="padding:16px; background:var(--grey-100); border-radius:12px; border:1px solid var(--grey-200);">
+        <div style="font-size:13px; color:var(--grey-500); margin-bottom:4px; font-weight:600;">Own Contribution (10%)</div>
+        <div style="font-size:20px; font-weight:700; color:var(--navy);" id="cOwn">${reiFormatINR(wiz.ownContribution)}</div>
+      </div>
+      <div class="stat-card" style="padding:16px; background:var(--grey-100); border-radius:12px; border:1px solid var(--grey-200);">
+        <div style="font-size:13px; color:var(--grey-500); margin-bottom:4px; font-weight:600;">Loan Eligibility (90%)</div>
+        <div style="font-size:20px; font-weight:700; color:var(--saffron-dark);" id="cLoan">+ ${reiFormatINR(wiz.loanAmount)}</div>
+      </div>
+      <div class="stat-card" style="grid-column:1 / -1; padding:20px; background:var(--blue-bg); border-radius:12px; border:2px solid rgba(37,99,235,0.3);">
+        <div style="font-size:14px; color:var(--blue-dark); font-weight:700; margin-bottom:4px;">Total Feasible Project Cost</div>
+        <div style="font-size:28px; font-weight:800; color:var(--navy);" id="cProj">${reiFormatINR(wiz.projectCost)}</div>
       </div>
     </div>
     <div class="wizard-actions">
@@ -304,12 +333,27 @@ function stepRouter(){
     <div class="alert ${wiz.bucket==='micro' ? 'alert-green':'alert-blue'}">
       Route selected: <strong>${product.name}</strong>
     </div>
-    <div class="card">
-      <div class="summary-row"><span>Matched loan product</span><span>${product.name}</span></div>
-      <div class="summary-row"><span>Interest rate</span><span>${product.rate}</span></div>
-      <div class="summary-row"><span>Fixed tenure</span><span>${product.tenure}</span></div>
-      <div class="summary-row"><span>Moratorium period</span><span>${product.moratoriumVal} months</span></div>
-      <div class="summary-row"><span>Collateral</span><span>${product.collateral}</span></div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:24px;">
+      <div class="stat-card" style="padding:16px; background:var(--grey-100); border-radius:12px; border:1px solid var(--grey-200);">
+        <div style="font-size:13px; color:var(--grey-500); margin-bottom:4px; font-weight:600;">Matched Product</div>
+        <div style="font-size:16px; font-weight:700; color:var(--navy);">${product.name}</div>
+      </div>
+      <div class="stat-card" style="padding:16px; background:var(--grey-100); border-radius:12px; border:1px solid var(--grey-200);">
+        <div style="font-size:13px; color:var(--grey-500); margin-bottom:4px; font-weight:600;">Interest Rate</div>
+        <div style="font-size:16px; font-weight:700; color:var(--navy);">${product.rate}</div>
+      </div>
+      <div class="stat-card" style="padding:16px; background:var(--grey-100); border-radius:12px; border:1px solid var(--grey-200);">
+        <div style="font-size:13px; color:var(--grey-500); margin-bottom:4px; font-weight:600;">Fixed Tenure</div>
+        <div style="font-size:16px; font-weight:700; color:var(--navy);">${product.tenure}</div>
+      </div>
+      <div class="stat-card" style="padding:16px; background:var(--grey-100); border-radius:12px; border:1px solid var(--grey-200);">
+        <div style="font-size:13px; color:var(--grey-500); margin-bottom:4px; font-weight:600;">Moratorium</div>
+        <div style="font-size:16px; font-weight:700; color:var(--navy);">${product.moratoriumVal} months</div>
+      </div>
+      <div class="stat-card" style="grid-column:1 / -1; padding:16px; background:var(--grey-100); border-radius:12px; border:1px solid var(--grey-200);">
+        <div style="font-size:13px; color:var(--grey-500); margin-bottom:4px; font-weight:600;">Collateral Requirement</div>
+        <div style="font-size:15px; font-weight:600; color:var(--navy);">${product.collateral}</div>
+      </div>
     </div>
     <div class="wizard-actions">
       <button class="btn btn-outline" id="backBtn">← Back</button>
@@ -327,12 +371,22 @@ function stepEmiEngine(){
       <div style="font-size:14px; margin-bottom:4px; font-weight:600;">Your Quarterly Installment</div>
       <div style="font-size:32px; color:var(--blue-dark); font-weight:bold;" id="emiVal">${reiFormatINR(Math.round(wiz.emi))}</div>
     </div>
-    <div class="card" style="background:var(--grey-100);">
-      <div class="summary-row"><span>Loan amount</span><span>${reiFormatINR(wiz.loanAmount)}</span></div>
-      <div class="summary-row"><span>Interest rate</span><span>${wiz.rate}% p.a.</span></div>
-      <div class="summary-row"><span>Loan tenure</span><span id="tenureVal">${wiz.tenure} months</span></div>
-      <div class="summary-row"><span>Moratorium period</span><span>${wiz.moratoriumMonths} months</span></div>
-      <div class="summary-row"><span>Total interest payable</span><span id="emiInterest">${reiFormatINR(Math.max(0, Math.round(wiz.emi * Math.floor(wiz.tenure / 3) - wiz.loanAmount)))}</span></div>
+    
+    <div style="margin-top:24px;">
+      <h4 style="margin-bottom:12px; font-size:15px; color:var(--navy);">Repayment Capacity (FOIR) Check</h4>
+      <div style="display:flex; gap:16px;">
+        <div class="form-row" style="flex:1;">
+          <label for="foirIncome">Est. Monthly Net Income (₹)</label>
+          <input type="number" id="foirIncome" value="${wiz.income || 25000}">
+        </div>
+        <div class="form-row" style="flex:1;">
+          <label for="foirExpenses">Existing Monthly Obligations (₹)</label>
+          <input type="number" id="foirExpenses" value="${wiz.expenses || 5000}">
+        </div>
+      </div>
+      <div id="foirResult" style="margin-top:16px; padding:16px; border-radius:12px; background:var(--grey-100); border:1px solid var(--grey-200);">
+        <!-- populated via js -->
+      </div>
     </div>
     <div class="wizard-actions">
       <button class="btn btn-outline" id="backBtn">← Back</button>
@@ -446,6 +500,54 @@ function bindStep(){
       document.getElementById("cProj").textContent = reiFormatINR(wiz.projectCost);
     });
   }
+  if(wiz.step === "emiEngine"){
+    const incInput = document.getElementById("foirIncome");
+    const expInput = document.getElementById("foirExpenses");
+    const res = document.getElementById("foirResult");
+    
+    const updateFoir = () => {
+      const inc = parseFloat(incInput.value) || 0;
+      const exp = parseFloat(expInput.value) || 0;
+      if (inc <= 0) {
+        res.innerHTML = `<span style="color:var(--red);">Please enter a valid income to calculate capacity.</span>`;
+        return;
+      }
+      const totalObligation = exp + (wiz.emi / 3); // EMI is quarterly, so monthly obligation is /3
+      const foir = (totalObligation / inc) * 100;
+      
+      let statusColor = "var(--emerald-dark, #059669)";
+      let text = "High Capacity (Low Risk)";
+      
+      if (foir > 60) {
+        statusColor = "var(--red, #dc2626)";
+        text = "Strained Capacity (High Risk)";
+      } else if (foir > 40) {
+        statusColor = "var(--saffron-dark)";
+        text = "Moderate Capacity";
+      }
+      
+      res.innerHTML = `
+        <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+          <span style="font-weight:600; font-size:14px; color:var(--navy);">FOIR: ${foir.toFixed(1)}%</span>
+          <span style="font-size:13px; font-weight:700; color:${statusColor};">${text}</span>
+        </div>
+        <div style="height:8px; background:var(--grey-200); border-radius:4px; overflow:hidden;">
+          <div id="foirFillBar" style="height:100%; width:0%; background:${statusColor}; transition:width 1s cubic-bezier(0.4, 0, 0.2, 1);"></div>
+        </div>
+        <div style="margin-top:10px; font-size:13px; color:var(--grey-500);">Est. Monthly Loan Obligation: ${reiFormatINR(Math.round(wiz.emi / 3))} | Total Monthly Outflow: ${reiFormatINR(Math.round(totalObligation))}</div>
+      `;
+      setTimeout(()=>{
+        const bar = document.getElementById("foirFillBar");
+        if(bar) bar.style.width = Math.min(foir, 100) + "%";
+      }, 50);
+    };
+    
+    if (incInput && expInput) {
+      incInput.addEventListener("input", updateFoir);
+      expInput.addEventListener("input", updateFoir);
+      updateFoir(); // trigger initial render
+    }
+  }
   if(wiz.step === "summary"){
     const chk = document.getElementById("confirmCheck");
     if(chk) chk.addEventListener("change", ()=>{
@@ -469,6 +571,10 @@ function collectStep(){
     wiz.ownContribution = parseFloat(document.getElementById("projCost").value) || wiz.ownContribution;
     wiz.projectCost = wiz.ownContribution * 10;
     wiz.loanAmount = wiz.ownContribution * 9;
+  }
+  if(wiz.step === "emiEngine"){
+    wiz.income = parseFloat(document.getElementById("foirIncome").value) || 0;
+    wiz.expenses = parseFloat(document.getElementById("foirExpenses").value) || 0;
   }
 }
 

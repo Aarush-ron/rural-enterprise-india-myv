@@ -36,12 +36,12 @@ const REI_DATA = {
   ],
 
   schemes: [
-    { name:"PM Vishwakarma Yojana", ministry:"MSME", benefit:"Up to ₹3,00,000 collateral-free loan", tag:"Loan Support" },
-    { name:"PMEGP (Prime Minister's Employment Generation Programme)", ministry:"MSME", benefit:"15%–35% subsidy on project cost", tag:"Subsidy" },
-    { name:"Deendayal Antyodaya Yojana – NRLM", ministry:"Rural Development", benefit:"Interest subvention for women SHGs", tag:"Women & SHG" },
-    { name:"Stand-Up India", ministry:"DFS", benefit:"₹10 lakh – ₹1 crore loans for SC/ST & women", tag:"Loan Support" },
-    { name:"Mudra Yojana (Shishu/Kishor/Tarun)", ministry:"MSME", benefit:"Collateral-free loans up to ₹10 lakh", tag:"Loan Support" },
-    { name:"Rural Godown Scheme", ministry:"Agriculture", benefit:"Capital subsidy on storage infrastructure", tag:"Infrastructure" }
+    { name:"PM Vishwakarma Yojana", ministry:"MSME", benefit:"Up to ₹3,00,000 collateral-free loan", tag:"Loan Support", eligibility:["Minimum age of 18 years on the date of registration", "Should be engaged in traditional trades", "Not availed loans under similar schemes"] },
+    { name:"PMEGP (Prime Minister's Employment Generation Programme)", ministry:"MSME", benefit:"15%–35% subsidy on project cost", tag:"Subsidy", eligibility:["Individuals above 18 years of age", "Passed at least VIII standard (for projects above ₹10L)", "Only new projects are considered for sanction"] },
+    { name:"Deendayal Antyodaya Yojana – NRLM", ministry:"Rural Development", benefit:"Interest subvention for women SHGs", tag:"Women & SHG", eligibility:["Must be a Women Self-Help Group (WSHG)", "Functional for at least 6 months", "Registered under the respective state societies act"] },
+    { name:"Stand-Up India", ministry:"DFS", benefit:"₹10 lakh – ₹1 crore loans for SC/ST & women", tag:"Loan Support", eligibility:["SC/ST and/or woman entrepreneur, above 18 years of age", "Loans available for greenfield projects", "Borrower should not be in default to any bank"] },
+    { name:"Mudra Yojana (Shishu/Kishor/Tarun)", ministry:"MSME", benefit:"Collateral-free loans up to ₹10 lakh", tag:"Loan Support", eligibility:["Non-Corporate Small Business Segment (NCSBS)", "Income-generating activity in manufacturing, trading or services", "Applicant should not be a defaulter"] },
+    { name:"Rural Godown Scheme", ministry:"Agriculture", benefit:"Capital subsidy on storage infrastructure", tag:"Infrastructure", eligibility:["Farmers, agricultural graduates, cooperatives", "Godown should be structurally sound", "Must obtain a license under the State Warehousing Act"] }
   ],
 
   loanProducts: [

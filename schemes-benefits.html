@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Schemes & Benefits | Gramventure</title>
 <meta name="description" content="Explore national schemes and subsidies for rural businesses.">
-<link rel="icon" href="assets/img/gramventure_logo.jpg">
+<link rel="icon" href="assets/img/gramventure_logo_new.png">
 <link rel="stylesheet" href="assets/css/style.css">
 
   <meta name="view-transition" content="same-origin">
@@ -17,9 +17,9 @@
 <header class="site-header gov-header">
   <div class="header-row">
     <a class="brand" href="index.html" style="text-decoration:none; display:flex; align-items:center;">
-      <img src="assets/img/gramventure_logo.jpg" alt="Gramventure Logo" style="width: 75px; height: 75px; margin-right: 16px; object-fit: contain; mix-blend-mode: multiply;">
+      <img src="assets/img/gramventure_logo_new.png" alt="Gramventure Logo" style="height: 50px; margin-right: 12px; object-fit: contain;">
       <div class="brand-text">
-        <h1 class="gov-title">Gramventure</h1>
+        
         <p class="gov-subtitle">Empowering Local Communities</p>
       </div>
     </a>
@@ -60,7 +60,20 @@
 </section>
 <div class="page-body">
   <h3 class="section-title">Available Schemes</h3>
-  <div id="schemeList"></div>
+  <div class="scheme-toolbar">
+    <div class="filter-tabs" id="schemeFilters">
+      <button class="filter-pill active" data-tag="all">All</button>
+      <button class="filter-pill" data-tag="Loan Support">Loan Support</button>
+      <button class="filter-pill" data-tag="Subsidy">Subsidy</button>
+      <button class="filter-pill" data-tag="Women & SHG">Women & SHG</button>
+      <button class="filter-pill" data-tag="Infrastructure">Infrastructure</button>
+    </div>
+    <div class="scheme-search-wrap">
+      <input type="text" id="schemeSearch" placeholder="Search schemes...">
+      <button class="scheme-search-clear" id="searchClear" aria-label="Clear search">✕</button>
+    </div>
+  </div>
+  <div id="schemeList" style="transition: opacity 0.15s ease;"></div>
 </div>
 
 </main>
@@ -108,19 +121,76 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", ()=>{
-  document.getElementById("schemeList").innerHTML = REI_DATA.schemes.map(s=>`
-    <div class="card">
-      <div class="flex-between">
-        <div>
-          <span class="badge badge-amber">${s.tag}</span>
-          <h4 style="margin:8px 0 4px;">${s.name}</h4>
-          <p class="muted" style="margin:0;">Ministry: ${s.ministry}</p>
-        </div>
-        <a class="btn btn-outline btn-sm" href="start-business.html">Check Eligibility →</a>
-      </div>
-      <p style="margin:10px 0 0;"><strong>Benefit:</strong> ${s.benefit}</p>
-    </div>
-  `).join("");
+  const listEl = document.getElementById("schemeList");
+  const filters = document.querySelectorAll(".filter-pill");
+  const searchInput = document.getElementById("schemeSearch");
+  const clearBtn = document.getElementById("searchClear");
+  
+  let currentTag = "all";
+  let currentQuery = "";
+
+  function renderSchemes() {
+    listEl.style.opacity = 0;
+    
+    setTimeout(() => {
+      const filtered = REI_DATA.schemes.filter(s => {
+        const matchTag = currentTag === "all" || s.tag === currentTag;
+        const matchQuery = s.name.toLowerCase().includes(currentQuery) || s.benefit.toLowerCase().includes(currentQuery);
+        return matchTag && matchQuery;
+      });
+
+      if (filtered.length === 0) {
+        listEl.innerHTML = `<p style="padding:40px 20px; text-align:center; color:var(--grey-500); font-weight:500;">No schemes found matching your criteria.</p>`;
+      } else {
+        listEl.innerHTML = filtered.map((s, idx) => `
+          <div class="card" style="margin-bottom:16px;">
+            <div class="flex-between">
+              <div>
+                <span class="badge badge-amber">${s.tag}</span>
+                <h4 style="margin:8px 0 4px;">${s.name}</h4>
+                <p class="muted" style="margin:0;">Ministry: ${s.ministry}</p>
+              </div>
+              <a class="btn btn-outline btn-sm" href="start-business.html">Check Eligibility →</a>
+            </div>
+            <p style="margin:10px 0 0;"><strong>Benefit:</strong> ${s.benefit}</p>
+            ${s.eligibility ? `
+              <button class="eligibility-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">Eligibility Criteria</button>
+              <div class="eligibility-content">
+                <ul style="margin-top:8px;">${s.eligibility.map(e => `<li>${e}</li>`).join('')}</ul>
+              </div>
+            ` : ''}
+          </div>
+        `).join("");
+      }
+      
+      listEl.style.opacity = 1;
+    }, 150);
+  }
+
+  filters.forEach(btn => {
+    btn.addEventListener("click", () => {
+      filters.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      currentTag = btn.dataset.tag;
+      renderSchemes();
+    });
+  });
+
+  searchInput.addEventListener("input", (e) => {
+    currentQuery = e.target.value.trim().toLowerCase();
+    clearBtn.style.display = currentQuery ? "block" : "none";
+    renderSchemes();
+  });
+
+  clearBtn.addEventListener("click", () => {
+    searchInput.value = "";
+    currentQuery = "";
+    clearBtn.style.display = "none";
+    renderSchemes();
+  });
+
+  // Initial render
+  renderSchemes();
 });
 </script>
 

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login | Gramventure</title>
 <meta name="description" content="Login to your Gramventure account.">
-<link rel="icon" href="assets/img/gramventure_logo.jpg">
+<link rel="icon" href="assets/img/gramventure_logo_new.png">
 <link rel="stylesheet" href="assets/css/style.css">
 
   <meta name="view-transition" content="same-origin">
@@ -17,9 +17,9 @@
 <header class="site-header gov-header">
   <div class="header-row">
     <a class="brand" href="index.html" style="text-decoration:none; display:flex; align-items:center;">
-      <img src="assets/img/gramventure_logo.jpg" alt="Gramventure Logo" style="width: 75px; height: 75px; margin-right: 16px; object-fit: contain; mix-blend-mode: multiply;">
+      <img src="assets/img/gramventure_logo_new.png" alt="Gramventure Logo" style="height: 50px; margin-right: 12px; object-fit: contain;">
       <div class="brand-text">
-        <h1 class="gov-title">Gramventure</h1>
+        
         <p class="gov-subtitle">Empowering Local Communities</p>
       </div>
     </a>
@@ -49,28 +49,52 @@
     </div>
   </nav>
 </header>
-<main id="main">
-
-<div class="page-body" style="max-width:460px;">
-  <div class="card">
-    <h2 style="margin-top:0;">Login to Your Account</h2>
-    <p class="muted">Access your dashboard, applications and documents.</p>
-    <div class="alert alert-blue">Demo mode: enter any name-like email and any password to continue.</div>
-    <form id="loginForm">
-      <div class="form-row">
-        <label for="email">Email or Mobile Number</label>
-        <input type="text" id="email" placeholder="e.g. ramesh.kumar@example.com" required>
-      </div>
-      <div class="form-row">
-        <label for="password">Password</label>
-        <input type="password" id="password" placeholder="••••••••" required>
-      </div>
-      <button class="btn btn-primary btn-block" type="submit">Login →</button>
-    </form>
-    <p style="text-align:center;margin-top:16px;font-size:13.5px;">New to Gramventure? <a href="register.html">Register here</a></p>
+<main id="main" class="auth-split">
+  <div class="auth-split-visual">
+    <h2 style="font-size:42px; line-height:1.2; margin-bottom:16px;">Empowering<br>Local Communities</h2>
+    <p style="font-size:18px; opacity:0.9; max-width:400px; line-height:1.6;">Access tailored government schemes, secure micro-financing, and financial literacy courses—all designed for rural entrepreneurs.</p>
   </div>
-</div>
-
+  
+  <div class="auth-split-form">
+    <div class="login-card">
+      <div style="text-align: center; margin-bottom: 24px;">
+        <h2 style="margin-top:0;">Welcome Back</h2>
+        <p class="muted">Sign in to access your dashboard.</p>
+      </div>
+      
+      <button class="fast-login-btn" id="fastLoginBtn" type="button">
+        ⚡ Fast Login (Demo Mode)
+      </button>
+      
+      <form id="loginForm">
+        <div class="form-row">
+          <label for="email" style="color: var(--grey-700);">Email or Mobile Number</label>
+          <div class="input-group">
+            <span class="icon">✉️</span>
+            <input type="text" id="email" class="modern-input" placeholder="e.g. ramesh.kumar@example.com" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="password" style="color: var(--grey-700);">Password</label>
+          <div class="input-group">
+            <span class="icon">🔒</span>
+            <input type="password" id="password" class="modern-input" placeholder="••••••••" required>
+            <button type="button" class="toggle-password" onclick="const p = document.getElementById('password'); if(p.type==='password'){p.type='text'; this.textContent='👁️';}else{p.type='password'; this.textContent='👁️‍🗨️';}">👁️‍🗨️</button>
+          </div>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; font-size: 13.5px;">
+          <label style="display: flex; align-items: center; gap: 8px; font-weight: 500; cursor: pointer; margin-bottom: 0;">
+            <input type="checkbox" style="width: auto; margin: 0; box-shadow: none;"> Remember me
+          </label>
+          <a href="#" style="font-weight: 600; color: var(--navy);">Forgot Password?</a>
+        </div>
+        <button class="btn modern-btn btn-block" type="submit">Login to Dashboard →</button>
+      </form>
+      <p style="text-align:center; margin-top:24px; font-size:14.5px; color: var(--grey-700);">
+        New to Gramventure? <a href="register.html" style="font-weight: 700; color: var(--navy);">Register here</a>
+      </p>
+    </div>
+  </div>
 </main>
 
 <footer class="site-footer">
@@ -115,6 +139,11 @@
 <script src="assets/js/main.js"></script>
 
 <script>
+document.getElementById('fastLoginBtn').addEventListener('click', () => {
+  document.getElementById('email').value = 'demo@gramventure.in';
+  document.getElementById('password').value = 'password123';
+});
+
 document.getElementById("loginForm").addEventListener("submit", function(e){
   e.preventDefault();
   const email = document.getElementById("email").value.trim();

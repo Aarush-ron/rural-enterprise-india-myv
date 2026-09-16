@@ -31,9 +31,54 @@ function reiInitTextSize(){
   });
 }
 
+function reiInitSettings(){
+  // Load Theme
+  const savedTheme = localStorage.getItem("reiTheme");
+  if (savedTheme === "dark") {
+    document.documentElement.setAttribute("data-theme", "dark");
+  }
+
+  // Load Large Text
+  const savedLargeText = localStorage.getItem("reiLargeText");
+  const root = document.documentElement;
+  if (savedLargeText === "true") {
+    root.style.fontSize = "18px";
+  }
+
+  // Hook up settings toggles (only run if on settings.html)
+  const darkToggle = document.getElementById("darkModeToggle");
+  if (darkToggle) {
+    darkToggle.checked = (savedTheme === "dark");
+    darkToggle.addEventListener("change", (e) => {
+      if (e.target.checked) {
+        document.documentElement.setAttribute("data-theme", "dark");
+        localStorage.setItem("reiTheme", "dark");
+      } else {
+        document.documentElement.removeAttribute("data-theme");
+        localStorage.setItem("reiTheme", "light");
+      }
+    });
+  }
+
+  const textToggle = document.getElementById("largeTextToggle");
+  if (textToggle) {
+    textToggle.checked = (savedLargeText === "true");
+    textToggle.addEventListener("change", (e) => {
+      if (e.target.checked) {
+        root.style.fontSize = "18px";
+        localStorage.setItem("reiLargeText", "true");
+      } else {
+        root.style.fontSize = "16px";
+        localStorage.setItem("reiLargeText", "false");
+      }
+    });
+  }
+}
+
 document.addEventListener("DOMContentLoaded", ()=>{
   reiInitHeader();
   reiInitTextSize();
+  reiInitSettings();
 
   const homeStartBtn = document.getElementById("homeStartBtn");
   if (homeStartBtn) {
