@@ -15,38 +15,41 @@
 <a class="skip-link" href="#main">Skip to Main Content</a>
 
 <header class="site-header gov-header">
-  <div class="header-row">
+  <!-- Main Tier -->
+  <div class="main-tier-row">
     <a class="brand" href="index.html" style="text-decoration:none; display:flex; align-items:center;">
-      <img src="assets/img/gramventure_logo_new.png" alt="Gramventure Logo" style="height: 50px; margin-right: 12px; object-fit: contain;">
+      <img src="assets/img/gramventure_logo_new.png" alt="Gramventure Logo" class="brand-logo">
       <div class="brand-text">
-        
-        <p class="gov-subtitle">Empowering Local Communities</p>
+        <h1 style="font-size: 22px; margin:0; color:var(--navy-dark); font-weight:800; letter-spacing:-0.03em;">Gramventure</h1>
+        <p class="gov-subtitle" style="margin:2px 0 0; font-size:12px; color:var(--grey-500); font-weight:500;">Empowering Local Communities</p>
       </div>
     </a>
     
-      <div class="app-switcher" id="mainSwitcher" style="display:inline-flex; background:#f1f5f9; border-radius:24px; padding:4px; align-items:center; ">
-        <div class="switcher-bg" style="position:absolute; top:4px; left:4px; bottom:4px; width:94px; background:#fff; border-radius:20px; box-shadow:0 2px 8px rgba(0,0,0,0.1); transition:transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); transform:translateX(0);"></div>
-        <a href="index.html" class="switch-btn" style="position:relative; z-index:1; padding:8px 16px; font-size:14px; font-weight:700; color:#0f172a; text-decoration:none; width: 94px; text-align:center; display:inline-block; box-sizing:border-box;">Business</a>
-        <a href="financial-literacy.html" class="switch-btn" style="position:relative; z-index:1; padding:8px 16px; font-size:14px; font-weight:600; color:#64748b; text-decoration:none; width: 94px; text-align:center; display:inline-block; box-sizing:border-box;">Academy</a>
-      </div>
+        <div class="app-switcher" id="mainSwitcher">
+      <div class="switcher-bg"></div>
+      <a href="index.html" class="switch-btn active">🏢 Business</a>
+      <a href="financial-literacy.html" class="switch-btn">🎓 Academy</a>
+    </div>
 
-    <div class="header-actions" style="display: flex; gap: 16px; align-items: center;">
-      <select class="lang-select" aria-label="Select language" style="border: 1px solid var(--grey-200); padding: 10px 14px; border-radius: 8px; font-weight: 600; font-size: 14px; background: #fff; cursor: pointer; color: var(--navy); outline: none;">
-        <option>English</option><option>हिन्दी</option>
-      </select>
-      <form class="search-form gov-search" role="search" onsubmit="return false;">
-        <label for="siteSearch" class="visually-hidden" style="position:absolute;left:-9999px;">Search</label>
-        <input id="siteSearch" type="text" placeholder="Search schemes, loans, businesses, terms...">
+    <div class="header-actions">
+      <form class="glass-search-form" role="search" onsubmit="return false;">
         <button type="submit" aria-label="Search">🔍</button>
+        <input id="siteSearch" type="text" placeholder="Search schemes, loans...">
       </form>
+      <a id="loginBtn" href="login.html" class="btn btn-primary" style="padding: 8px 16px; border-radius: 20px;">👤 Sign In</a>
     </div>
   </div>
-  <nav class="main-nav gov-nav" aria-label="Primary">
-    <div class="container">
-      <ul><li><a class="" href="index.html">Home</a></li><li><a class="" href="schemes-benefits.html">Schemes & Benefits</a></li><li><a class="" href="loans-facility.html">Loans Facility</a></li><li><a class="" href="government-initiatives.html">Core Initiatives</a></li><li><a class="" href="impact-data.html">Impact & Data</a></li>
-      <li class="login-nav"><a id="loginBtn" href="login.html">👤 Login</a></li>
-      </ul>
-    </div>
+
+  <!-- Primary Navigation Tier -->
+  <nav class="primary-nav-tier" aria-label="Primary">
+    <ul>
+      <li><a class="" href="index.html">Home</a></li>
+      <li><a class="" href="schemes-benefits.html">Schemes & Benefits</a></li>
+      <li><a class="" href="loans-facility.html">Loans Facility</a></li>
+      <li><a class="" href="government-initiatives.html">Core Initiatives</a></li>
+      <li><a class="" href="impact-data.html">Impact & Data</a></li>
+      <li><a class="active" href="settings.html">Settings</a></li>
+    </ul>
   </nav>
 </header>
 <main id="main">

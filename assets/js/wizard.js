@@ -51,28 +51,39 @@ let wiz = {
 
 function wizGoto(step){
   const panel = document.getElementById("wizardCard");
-  if(panel.innerHTML.trim() !== "") {
+  const wizTop = document.getElementById("wizardTop");
+  
+  if(panel && panel.innerHTML.trim() !== "") {
     panel.style.transition = "opacity 150ms ease-out, transform 150ms ease-out";
     panel.style.opacity = 0;
     panel.style.transform = "translateX(15px)";
   }
   
   setTimeout(() => {
-    wiz.step = step;
-    renderProgress();
-    renderStep();
-    window.scrollTo({top: document.getElementById("wizardTop").offsetTop - 20, behavior:"smooth"});
+    try {
+      wiz.step = step;
+      renderProgress();
+      renderStep();
+      if (wizTop) {
+        window.scrollTo({top: wizTop.offsetTop - 20, behavior:"smooth"});
+      }
+    } catch (e) {
+      console.error("Wizard Error:", e);
+    }
     
-    panel.style.transition = "none";
-    panel.style.opacity = 0;
-    panel.style.transform = "translateX(-15px)";
-    
-    void panel.offsetWidth; // Trigger reflow
-    
-    panel.style.transition = "opacity 150ms ease-out, transform 150ms ease-out";
-    panel.style.opacity = 1;
-    panel.style.transform = "translateX(0)";
-  }, panel.innerHTML.trim() !== "" ? 150 : 0);
+    if (panel) {
+      panel.style.transition = "none";
+      panel.style.opacity = 0;
+      panel.style.transform = "translateX(-15px)";
+      
+      // Force reflow
+      void panel.offsetWidth; 
+      
+      panel.style.transition = "opacity 150ms ease-out, transform 150ms ease-out";
+      panel.style.opacity = 1;
+      panel.style.transform = "translateX(0)";
+    }
+  }, 150);
 }
 
 function renderProgress(){
@@ -107,8 +118,8 @@ function stepLocation(){
 }
 
 function stepScale(){
-  const opts = REI_DATA.businessScales.map(s=>`
-    <button type="button" class="choice-card ${wiz.scale===s.id?'selected':''}" data-scale="${s.id}">
+  const opts = REI_DATA.businessScales.map((s, index)=>`
+    <button type="button" class="choice-card ${wiz.scale===s.id?\'selected\':\'\'} animate-stagger-${index+1}" data-scale="${s.id}">
       <b>${s.label}</b><span>${s.desc}</span><span style="display:block;margin-top:4px;color:var(--grey-500);">${s.example}</span>
     </button>`).join("");
   return cardShell(`
@@ -123,7 +134,7 @@ function stepScale(){
 }
 
 function stepSector(){
-  const opts = REI_DATA.sectors.map(s=>`
+  const opts = REI_DATA.sectors.map((s, index)=>`
     <button type="button" class="choice-card ${wiz.sector===s.id?'selected':''}" data-sector="${s.id}">
       <b>${s.icon} ${s.label}</b><span>Tap to explore businesses</span>
     </button>`).join("");
@@ -448,7 +459,6 @@ function renderStep(){
     setTimeout(initCompetitorMap, 100);
   }
   bindStep();
-  updateProgress();
   
   // Ensure the wizard scrolls to top on step change so content isn't cut off
   const wizTop = document.getElementById("wizardTop");

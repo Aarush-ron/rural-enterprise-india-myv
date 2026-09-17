@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desktop Learning Dashboard - GramVenture</title>
+    <!-- Tailwind CSS (via CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome (via CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 min-h-screen flex text-slate-900 font-sans selection:bg-emerald-200 selection:text-emerald-900 overflow-x-hidden">
+
+    <!-- 1. LEFT SIDEBAR (The Curriculum Navigation) -->
+    <aside class="w-80 bg-slate-900 text-slate-300 flex-shrink-0 min-h-screen border-r border-slate-800 flex flex-col fixed left-0 top-0 bottom-0 z-20">
+        <!-- Sidebar Header -->
+        <div class="p-6 border-b border-slate-800 bg-slate-950 flex items-center justify-between">
+            <h1 class="text-xl font-bold text-white tracking-wide uppercase">GramVenture</h1>
+            <a href="dashboard.html" class="text-slate-400 hover:text-white transition-colors rounded-none focus:outline-none focus:ring-2 focus:ring-emerald-500" title="Exit to Dashboard">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </a>
+        </div>
+        
+        <!-- Curriculum Label -->
+        <div class="p-5 uppercase tracking-widest text-xs font-bold text-slate-500 mt-2 mb-1">
+            Curriculum Modules
+        </div>
+        
+        <!-- Navigation Links (Sharp Edges, No Border Radius) -->
+        <nav class="flex-grow flex flex-col">
+            <a href="#" class="p-5 hover:bg-slate-800 border-l-4 border-transparent transition-colors flex items-center gap-4 rounded-none focus:outline-none focus:bg-slate-800">
+                <i class="fa-solid fa-check text-emerald-500 w-5 text-center"></i>
+                <span class="font-medium text-slate-100">Chapter 1: Banking Basics</span>
+            </a>
+            
+            <!-- Active Chapter -->
+            <a href="#" class="p-5 bg-slate-800 border-l-4 border-emerald-500 flex items-center gap-4 rounded-none focus:outline-none">
+                <i class="fa-solid fa-play text-white w-5 text-sm text-center"></i>
+                <span class="font-bold text-white">Chapter 2: Understanding EMIs</span>
+            </a>
+            
+            <a href="#" class="p-5 hover:bg-slate-800 border-l-4 border-transparent transition-colors flex items-center gap-4 opacity-50 rounded-none focus:outline-none focus:bg-slate-800 cursor-not-allowed">
+                <i class="fa-solid fa-lock w-5 text-sm text-center text-slate-500"></i>
+                <span class="font-medium text-slate-300">Chapter 3: Using UPI & QR Codes</span>
+            </a>
+            
+            <a href="#" class="p-5 hover:bg-slate-800 border-l-4 border-transparent transition-colors flex items-center gap-4 opacity-50 rounded-none focus:outline-none focus:bg-slate-800 cursor-not-allowed">
+                <i class="fa-solid fa-lock w-5 text-sm text-center text-slate-500"></i>
+                <span class="font-medium text-slate-300">Chapter 4: Inventory Logistics</span>
+            </a>
+        </nav>
+        
+        <!-- Sidebar Footer / Progress -->
+        <div class="p-6 border-t border-slate-800 bg-slate-950">
+            <div class="flex justify-between items-end mb-2">
+                <span class="text-sm font-semibold tracking-wide text-slate-400 uppercase">Progress</span>
+                <span class="text-sm font-bold text-emerald-500">25%</span>
+            </div>
+            <!-- Sharp Progress Bar -->
+            <div class="w-full bg-slate-800 h-1.5 rounded-none">
+                <div class="bg-emerald-500 h-1.5 w-1/4 rounded-none"></div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- 2. MAIN CONTENT AREA (Edge-to-Edge) -->
+    <main class="flex-grow ml-80 min-h-screen flex flex-col bg-slate-50">
+        
+        <!-- Top Header (Crisp White) -->
+        <header class="bg-white border-b border-slate-200 p-6 flex justify-between items-center sticky top-0 z-10 shadow-sm">
+            <h2 class="text-2xl font-extrabold text-slate-800 tracking-tight">Chapter 2: Understanding EMIs</h2>
+            <div class="flex items-center gap-3">
+                <span class="text-xs font-bold text-slate-500 tracking-widest uppercase">Language:</span>
+                <select class="bg-slate-100 border border-slate-300 text-slate-800 py-1.5 px-3 text-sm font-bold focus:outline-none focus:ring-1 focus:ring-emerald-700 focus:border-emerald-700 rounded-none cursor-pointer appearance-none">
+                    <option>English</option>
+                    <option>Hindi (हिंदी)</option>
+                    <option>Marathi (मराठी)</option>
+                </select>
+            </div>
+        </header>
+
+        <!-- Content Body -->
+        <div class="p-6 md:p-10 max-w-[1400px] mx-auto w-full flex flex-col gap-8">
+            
+            <!-- 3. VIDEO INTEGRATION (The Focal Point) -->
+            <!-- Using an embedded stock educational video. Container has sharp edges and shadow -->
+            <div class="w-full bg-slate-900 shadow-md border border-slate-200 relative aspect-video rounded-none">
+                <iframe 
+                    class="w-full h-full border-none rounded-none" 
+                    src="https://www.youtube.com/embed/Q5XkX0-c-Zk?si=1n15P4Jp8g_B_n-g&rel=0&controls=1&modestbranding=1" 
+                    title="Educational Financial Concept Video" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <!-- 4. THE TEXT & SCENARIO CHECK (2-Column Grid) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mt-2">
+                
+                <!-- Column 1: Theory (Professional Serif Text) -->
+                <div class="flex flex-col">
+                    <h3 class="text-sm font-bold text-slate-400 mb-6 uppercase tracking-widest border-b-2 border-emerald-700 inline-block self-start pb-2">Concept Theory</h3>
+                    
+                    <div class="prose prose-slate prose-lg max-w-none text-slate-800" style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                        <p class="mb-5 leading-relaxed text-lg">
+                            An Equated Monthly Installment (EMI) is a fixed payment amount made by a borrower to a lender at a specified date each calendar month. Equated monthly installments are applied to both interest and principal each month so that over a specified number of years, the loan is paid off in full.
+                        </p>
+                        <p class="leading-relaxed text-lg">
+                            For a growing rural enterprise, utilizing EMIs can be a highly effective strategy for capital expenditure. Instead of depleting operational cash reserves to purchase heavy machinery, tractors, or cold storage units, the cost is distributed across the asset's usable lifespan, maintaining liquidity for day-to-day operations and emergencies.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Column 2: Practical Scenario Check -->
+                <div class="bg-white border border-slate-300 p-8 shadow-sm flex flex-col rounded-none">
+                    <h3 class="text-sm font-bold text-slate-400 mb-6 uppercase tracking-widest border-b-2 border-slate-300 inline-block self-start pb-2">Practical Scenario Check</h3>
+                    
+                    <p class="text-lg text-slate-800 mb-8 font-medium leading-relaxed">
+                        Your shop's gross margin is ₹50,000 per month. You urgently need a commercial refrigerator costing ₹60,000 to store perishables. Which financial approach effectively protects your daily operational liquidity?
+                    </p>
+                    
+                    <div class="flex flex-col gap-4">
+                        <!-- Option A -->
+                        <button id="opt1" class="text-left w-full border border-slate-300 bg-slate-100 hover:bg-slate-200 text-slate-800 p-5 text-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-inset flex items-start gap-4 rounded-none">
+                            <span class="font-bold text-slate-400 mt-0.5 w-6">A.</span>
+                            <span class="leading-snug">Paying the full ₹60,000 upfront using all your current savings.</span>
+                        </button>
+                        
+                        <!-- Option B -->
+                        <button id="opt2" class="text-left w-full border border-slate-300 bg-slate-100 hover:bg-slate-200 text-slate-800 p-5 text-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-inset flex items-start gap-4 rounded-none">
+                            <span class="font-bold text-slate-400 mt-0.5 w-6">B.</span>
+                            <span class="leading-snug">Securing an EMI plan of ₹6,000 per month over 12 months.</span>
+                        </button>
+                    </div>
+
+                    <!-- Validation Message (Hidden by default) -->
+                    <div id="validation-msg" class="hidden mt-8 bg-slate-50 border-l-4 border-emerald-700 p-6 rounded-none">
+                        <div class="flex items-center gap-3 text-emerald-800 font-bold mb-3 uppercase tracking-wider text-sm">
+                            <i class="fa-solid fa-circle-check text-lg"></i>
+                            Assessment Passed
+                        </div>
+                        <p class="text-slate-800 leading-relaxed font-medium">
+                            Selecting the EMI preserves your ₹50,000 cash flow, allowing you to seamlessly restock inventory, pay vendors, and handle daily expenses while simultaneously expanding your business capacity.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+    </main>
+
+    <script>
+        const opt1 = document.getElementById('opt1');
+        const opt2 = document.getElementById('opt2');
+        const validationMsg = document.getElementById('validation-msg');
+
+        // Logic for incorrect option (Option A)
+        opt1.addEventListener('click', () => {
+            // Style incorrect option
+            opt1.classList.remove('bg-slate-100', 'hover:bg-slate-200', 'text-slate-800', 'border-slate-300');
+            opt1.classList.add('bg-slate-800', 'text-white', 'border-slate-900');
+            opt1.querySelector('span:first-child').classList.replace('text-slate-400', 'text-slate-300');
+            
+            // Reset correct option if previously clicked
+            opt2.classList.add('bg-slate-100', 'hover:bg-slate-200', 'text-slate-800', 'border-slate-300');
+            opt2.classList.remove('bg-emerald-700', 'text-white', 'border-emerald-800');
+            opt2.querySelector('span:first-child').classList.replace('text-emerald-300', 'text-slate-400');
+            
+            // Hide validation
+            validationMsg.classList.add('hidden');
+        });
+
+        // Logic for correct option (Option B)
+        opt2.addEventListener('click', () => {
+            // Style correct option
+            opt2.classList.remove('bg-slate-100', 'hover:bg-slate-200', 'text-slate-800', 'border-slate-300');
+            opt2.classList.add('bg-emerald-700', 'text-white', 'border-emerald-800');
+            opt2.querySelector('span:first-child').classList.replace('text-slate-400', 'text-emerald-300');
+            
+            // Reset incorrect option if previously clicked
+            opt1.classList.add('bg-slate-100', 'hover:bg-slate-200', 'text-slate-800', 'border-slate-300');
+            opt1.classList.remove('bg-slate-800', 'text-white', 'border-slate-900');
+            opt1.querySelector('span:first-child').classList.replace('text-slate-300', 'text-slate-400');
+            
+            // Show professional validation
+            validationMsg.classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
